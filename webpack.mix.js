@@ -18,4 +18,4 @@ const mix = require("laravel-mix");
 )
  */
 
-mix.js("resources/js/index.jsx", "public/js").react();
+mix.js("resources/js/pages/Home/index.jsx", "public/js/pages/Home").react();

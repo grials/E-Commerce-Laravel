@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>E-commerce</title>
+    <title>Home</title>
 </head>
 <body>
-    <h1>Hola Mundo</h1>
+
     <div id="app"></div>
 
-    <script src="/js/index.js" ></script>
+    <script src="/js/pages/Home/index.js" ></script>
 
 </body>
 </html>

@@ -1,0 +1,85 @@
+.headerHome {
+    width: 100%;
+    height: auto;
+    position: relative;
+    background-color: #eee;
+    .continer_headerHome {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 16px 0;
+        .continer2_headerHome {
+            width: 100%;
+            height: auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: stretch;
+            align-items: center;
+            padding: 0 16px;
+            .headerContact {
+                height: auto;
+                position: relative;
+                .continer_headerContact {
+                    width: 100%;
+                    height: auto;
+                    position: relative;
+                    a {
+                        width: 100%;
+                        height: auto;
+                        text-decoration: none;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: #000;
+                        cursor: pointer;
+                        &:hover {
+                            color: #f00;
+                            text-decoration: underline;
+                        }
+                        .iconHeaderContact {
+                            font-size: 32px;
+                        }
+                        span {
+                            margin-left: 8px;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+            .headerNav {
+                width: 100%;
+                height: auto;
+                position: relative;
+                margin-top: 16px;
+                .continer_headerNav {
+                    width: 100%;
+                    height: auto;
+                    position: relative;
+                    .continer2_headerNav {
+                        width: 100%;
+                        height: auto;
+                        position: relative;
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        align-items: center;
+                        align-content: center;
+                        & > a {
+                            flex-basis: 120px;
+                            height: auto;
+                            text-decoration: none;
+                            color: #000;
+                            cursor: pointer;
+                            text-align: center;
+                            &:hover {
+                                color: #f00;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

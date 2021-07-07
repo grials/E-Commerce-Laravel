@@ -1,0 +1,34 @@
+.barUtilities {
+    height: auto;
+    position: relative;
+    margin: 16px 0;
+    .continer_barUtilities {
+        width: 100%;
+        height: auto;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .continer2_barUtilities {
+            max-width: 280px;
+            width: 100%;
+            height: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            // flex-wrap: wrap;
+            .continerMenuHamburguer {
+                height: 100%;
+                flex-basis: 32%;
+                cursor: pointer;
+            }
+            .continerMenuHamburguer_menuIcon {
+                border: 2px solid #000;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 32px;
+            }
+        }
+    }
+}

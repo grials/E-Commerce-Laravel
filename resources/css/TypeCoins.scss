@@ -1,0 +1,73 @@
+.typeCoins {
+    flex-basis: 120px;
+    height: auto;
+    position: relative;
+    // background-color: #aaa;
+    border-radius: 5px;
+    .continer_typeCoins {
+        position: relative;
+        padding: 4px;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        cursor: pointer;
+        .continerTitle_typeCoins {
+            width: 100%;
+            height: auto;
+            position: relative;
+            .continer_continerTitle {
+                width: 100%;
+                height: auto;
+                position: relative;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                & > span {
+                    color: #000;
+                }
+            }
+        }
+        .continerCoins {
+            position: absolute;
+            z-index: 100;
+            padding: 4px;
+            // height: 0;
+            height: auto;
+            width: 100%;
+            top: 100%;
+            left: 0;
+            background-color: #aaa;
+            border-radius: 5px;
+            box-shadow: 5px 5px 5px #0005;
+            .continer_continerCoins {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                .typeCoin {
+                    color: #000;
+                    text-decoration: none;
+                    height: auto;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    cursor: pointer;
+                    &:not(:last-child) {
+                        margin-bottom: 8px;
+                    }
+                    &:hover {
+                        color: #f00;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        &:hover {
+            overflow: visible;
+            transition: overflow 0.7s ease;
+        }
+    }
+}

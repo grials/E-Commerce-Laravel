@@ -1,0 +1,74 @@
+.language {
+    flex-basis: 120px;
+    padding: 8px;
+    height: auto;
+    position: relative;
+    .continer_language {
+        position: relative;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        cursor: pointer;
+        .continerTitle {
+            width: 100%;
+            height: auto;
+            position: relative;
+            .continer_continerTitle {
+                width: 100%;
+                height: auto;
+                position: relative;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                & > img {
+                    margin-right: 4px;
+                }
+            }
+        }
+        .continerLanguage {
+            position: absolute;
+            z-index: 100;
+            // height: 0;
+            height: auto;
+            width: 100%;
+            top: 100%;
+            left: 0;
+            background-color: #aaa;
+            padding: 4px;
+            border-radius: 5px;
+            box-shadow: 5px 5px 5px #0005;
+            .continer_continerLanguage {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                .typeLanguage {
+                    color: #000;
+                    text-decoration: none;
+                    height: auto;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    cursor: pointer;
+                    &:not(:last-child) {
+                        margin-bottom: 8px;
+                    }
+                    &:hover {
+                        color: #f00;
+                        text-decoration: underline;
+                    }
+                    & > img {
+                        margin-right: 4px;
+                    }
+                }
+            }
+        }
+        &:hover {
+            overflow: visible;
+            transition: overflow 0.7s ease;
+        }
+    }
+}

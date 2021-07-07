@@ -1,0 +1,87 @@
+.searchHome {
+    width: 100%;
+    height: auto;
+    position: relative;
+    .continer_searchHome {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 16px;
+        .continer2_searchHome {
+            width: 100%;
+            height: auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: stretch;
+            .mainImage {
+                position: relative;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                a {
+                    max-width: 750px;
+                    width: 100%;
+                    height: auto;
+                    position: relative;
+                    & > img {
+                        max-height: 180px;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            .barSearch {
+                height: auto;
+                position: relative;
+                .continer_barSearch {
+                    position: relative;
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .continer2_barSearch {
+                        position: relative;
+                        width: 100%;
+                        max-width: 550px;
+                        height: 48px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border: 3px solid #f00;
+                        & > input[type="text"] {
+                            flex-basis: 80%;
+                            height: 100%;
+                            outline: none;
+                            border: none;
+                            padding: 8px;
+                            font-size: 16px;
+                            color: #333;
+                            &::placeholder {
+                                color: #444;
+                                text-transform: uppercase;
+                                font-size: 24px;
+                            }
+                        }
+                        span {
+                            flex-basis: 20%;
+                            height: 100%;
+                            background-color: #f00;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: pointer;
+                            .iconSearch {
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
