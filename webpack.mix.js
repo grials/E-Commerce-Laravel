@@ -19,3 +19,8 @@ const mix = require("laravel-mix");
  */
 
 mix.js("resources/js/pages/Home/index.jsx", "public/js/pages/Home").react();
+mix.js(
+    "resources/js/pages/Register/index.jsx",
+    "public/js/pages/Register"
+).react();
+mix.js("resources/js/pages/Login/index.jsx", "public/js/pages/Login").react();

@@ -1,3 +1,5 @@
 {
-    "/js/pages/Home/index.js": "/js/pages/Home/index.js"
+    "/js/pages/Home/index.js": "/js/pages/Home/index.js",
+    "/js/pages/Register/index.js": "/js/pages/Register/index.js",
+    "/js/pages/Login/index.js": "/js/pages/Login/index.js"
 }

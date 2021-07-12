@@ -45,7 +45,11 @@ const ContinerProductCategories = styled.div`
         height: auto;
         position: relative;
         padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         & > .continer2 {
+            max-width: 1100px;
             width: 100%;
             height: auto;
             position: relative;
@@ -118,6 +122,24 @@ const ContinerProductCategories = styled.div`
                             height: 100%;
                         }
                     }
+                }
+            }
+        }
+    }
+    @media (min-width: 550px) and (max-width: 850px) {
+        & > .continer {
+            & > .continer2 {
+                & > .continerImage {
+                    height: 120px;
+                }
+            }
+        }
+    }
+    @media (min-width: 850px) {
+        & > .continer {
+            & > .continer2 {
+                & > .continerImage {
+                    height: 200px;
                 }
             }
         }

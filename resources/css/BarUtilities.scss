@@ -32,3 +32,16 @@
         }
     }
 }
+
+@media (min-width: 1050px) {
+    .barUtilities {
+        height: 100%;
+        width: 25%;
+        order: 3;
+        .continer_barUtilities {
+            .continer2_barUtilities {
+                justify-content: space-evenly;
+            }
+        }
+    }
+}

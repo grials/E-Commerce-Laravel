@@ -52,19 +52,29 @@ const ContinerServicesExtra = styled.div`
             height: auto;
             position: relative;
             display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: stretch;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    }
+    @media (min-width: 1480px) {
+        & > .continer {
+            padding: 64px 32px;
         }
     }
 `;
 
 const ContinerCardService = styled.div`
+    max-width: 350px;
     width: 100%;
     height: 150px;
     position: relative;
     border: 1px solid #999;
     margin-bottom: 16px;
+    &:not(:last-child) {
+        margin-right: 16px;
+    }
     & > .continer {
         width: 100%;
         height: 100%;

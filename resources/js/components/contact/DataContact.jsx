@@ -35,6 +35,7 @@ function CardContentData({ title, content }) {
 
 const ContinerDataContact = styled.div`
     min-width: 290px;
+    max-width: 500px;
     flex-basis: 33.33%;
     height: auto;
     position: relative;

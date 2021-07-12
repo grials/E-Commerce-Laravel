@@ -14,3 +14,11 @@ routes are loaded by the RouteServiceProvider within a group which
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/register', function () {
+    return view('Register');
+});
+
+Route::get('/login', function () {
+    return view('Login');
+});

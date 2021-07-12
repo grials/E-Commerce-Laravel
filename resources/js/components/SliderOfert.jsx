@@ -67,6 +67,7 @@ const ContinerSliderOfert = styled.div`
     width: 100%;
     height: 400px;
     position: relative;
+    cursor: pointer;
     & > .continer {
         width: 100%;
         height: 100%;
@@ -93,7 +94,8 @@ const ContinerSliderOfert = styled.div`
                     }
                 }
                 .continerImage {
-                    flex-basis: 80%;
+                    /* flex-basis: 80%; */
+                    height: 80%;
                     position: relative;
                     width: 100%;
                     padding: 16px;
@@ -203,6 +205,9 @@ const ContinerSliderOfert = styled.div`
                 }
             }
         }
+    }
+    @media (min-width: 550px) {
+        width: 220px;
     }
 `;
 

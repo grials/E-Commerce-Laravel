@@ -47,8 +47,10 @@ function Publicity() {
                             />
                         </Carrusel>
                     </div>
-                    <PublicityAloner image={ImageBanner_1} />
-                    <PublicityAloner image={ImageBanner_2} />
+                    <div className="continerPublicitiesAloners">
+                        <PublicityAloner image={ImageBanner_1} />
+                        <PublicityAloner image={ImageBanner_2} />
+                    </div>
                 </div>
             </div>
         </ContinerPublicity>
@@ -73,6 +75,7 @@ function PublicityAloner({ image }) {
 }
 
 const ContinerPublicityAloner = styled.div`
+    max-width: 525px;
     width: 100%;
     height: 100%;
     position: relative;
@@ -135,9 +138,25 @@ const ContinerPublicity = styled.div`
             position: relative;
             width: 100%;
             height: auto;
-            .continerCarrusel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .continerPublicitiesAloners {
+                max-width: 1100px;
                 width: 100%;
-                height: 200px;
+                height: auto;
+                position: relative;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                align-items: center;
+                align-content: center;
+            }
+            .continerCarrusel {
+                max-width: 1100px;
+                width: 100%;
+                height: auto;
                 position: relative;
             }
         }

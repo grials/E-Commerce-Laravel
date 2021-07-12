@@ -95,6 +95,26 @@ const ContinerFooter = styled.div`
             }
         }
     }
+    @media (min-width: 700px) {
+        & > .continer {
+            padding: 64px;
+            & > .continer2 {
+                & > .continerTitles {
+                    .copyright {
+                        font-size: 2rem;
+                    }
+                    & > .subtitle {
+                        font-size: 1.8rem;
+                    }
+                }
+                .continerLinksFooter {
+                    & > .link {
+                        font-size: 1.3rem;
+                    }
+                }
+            }
+        }
+    }
 `;
 
 export default Footer;

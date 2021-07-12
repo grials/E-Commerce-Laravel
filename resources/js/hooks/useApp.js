@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
     resizeIsDesktop,
     resizeIsMovile,
-} from "../../context/actions/resizeAction";
+} from "../context/actions/resizeAction";
 
 function useApp() {
     const context_movile = useSelector((state) => state.resize.movile);

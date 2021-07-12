@@ -246,6 +246,24 @@ const ContinerLatesProduct = styled.div`
             }
         }
     }
+    @media (min-width: 550px) and (max-width: 850px) {
+        & > .continer {
+            & > .continer2 {
+                & > .continerImage {
+                    height: 120px;
+                }
+            }
+        }
+    }
+    @media (min-width: 850px) {
+        & > .continer {
+            & > .continer2 {
+                & > .continerImage {
+                    height: 200px;
+                }
+            }
+        }
+    }
 `;
 
 export default LatesProducts;

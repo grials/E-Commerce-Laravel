@@ -6324,345 +6324,6 @@ var ContinerBarNav = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(
 
 /***/ }),
 
-/***/ "./resources/js/components/Carrusel.jsx":
-/*!**********************************************!*\
-  !*** ./resources/js/components/Carrusel.jsx ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _material_ui_icons_ArrowBackIos__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/icons/ArrowBackIos */ "./node_modules/@material-ui/icons/ArrowBackIos.js");
-/* harmony import */ var _material_ui_icons_ArrowForwardIos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/icons/ArrowForwardIos */ "./node_modules/@material-ui/icons/ArrowForwardIos.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject, _templateObject2, _templateObject3, _templateObject4;
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-
-
-
-
-
-
-
-function Carrusel(_ref) {
-  var children = _ref.children;
-  // console.log("entre", children.length);
-  var sliderRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null); // const intervalRef = useRef(null);
-
-  var leftFunction = function leftFunction() {
-    var index = sliderRef.current.children.length - 1;
-    var lastElement = sliderRef.current.children[index];
-    sliderRef.current.insertBefore(lastElement, sliderRef.current.firstChild);
-    sliderRef.current.style.transition = "none";
-    sliderRef.current.style.transform = "translateX(-".concat(100 / children.length, "%)");
-    setTimeout(function () {
-      sliderRef.current.style.transition = "all 0.5s ease-in-out";
-      sliderRef.current.style.transform = "translateX(0)";
-    }, 30);
-  };
-
-  var rightFunction = function rightFunction() {
-    if (sliderRef.current.children.length > 0) {
-      var firstChild = sliderRef.current.children[0];
-      sliderRef.current.style.transition = "all 500ms ease-in-out";
-      sliderRef.current.style.transform = "translateX(-".concat(100 / children.length, "%)");
-
-      var finishTransition = function finishTransition() {
-        sliderRef.current.style.transition = "none";
-        sliderRef.current.style.transform = "translateX(0)";
-        sliderRef.current.appendChild(firstChild);
-        sliderRef.current.removeEventListener("transitionend", finishTransition);
-      };
-
-      sliderRef.current.addEventListener("transitionend", finishTransition);
-    }
-  }; // useEffect(() => {
-  //     intervalRef.current = setInterval(() => {
-  //         rightFunction();
-  //     }, 2000);
-  //     sliderRef.current.addEventListener("mouseenter", () =>
-  //         clearInterval(intervalRef.current)
-  //     );
-  //     sliderRef.current.addEventListener(
-  //         "mouseout",
-  //         () =>
-  //             (intervalRef.current = setInterval(() => {
-  //                 rightFunction();
-  //             }, 2000))
-  //     );
-  // }, []);
-
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(ContinerCarrusel, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(ShowSlider, {
-      ref: sliderRef,
-      index: children.length,
-      children: children
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(ContinerButtons, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Button, {
-        onClick: leftFunction,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_icons_ArrowBackIos__WEBPACK_IMPORTED_MODULE_2__.default, {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Button, {
-        right: true,
-        onClick: rightFunction,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_icons_ArrowForwardIos__WEBPACK_IMPORTED_MODULE_3__.default, {})
-      })]
-    })]
-  });
-}
-
-var ContinerCarrusel = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    position: relative;\n    width: 100%;\n    height: auto;\n    overflow: hidden;\n"])));
-var ShowSlider = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    position: relative;\n    height: auto;\n    width: ", ";\n    display: flex;\n    flex-wrap: nowrap;\n"])), function (props) {
-  return "".concat(props.index * 100, "%");
-});
-var ContinerButtons = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    position: relative;\n    width: 100%;\n    height: 40px;\n    padding-top: 4px;\n    pointer-events: none;\n    top: 0;\n    left: 0;\n    @media (min-width: 550px) {\n        position: absolute;\n        width: 100%;\n        height: 100%;\n        pointer-events: none;\n        top: 0;\n        left: 0;\n    }\n"])));
-var Button = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.button(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    position: relative;\n    width: 50%;\n    height: 100%;\n    top: 0;\n    right: ", ";\n    pointer-events: all;\n    background-color: #9995;\n    cursor: pointer;\n    border: 1px solid #999;\n    outline: none;\n    color: #fff;\n    &:hover {\n        background-color: #999;\n        border-color: #f00;\n    }\n    @media (min-width: 550px) {\n        position: absolute;\n        width: 10%;\n        height: 100%;\n        top: 0;\n        right: ", ";\n        pointer-events: all;\n        background-color: #0001;\n        cursor: pointer;\n        border: none;\n        outline: none;\n        color: #fff;\n        transition: color 0.3s ease-in-out;\n        transition: background 0.3s ease-in-out;\n        &:hover {\n            background-color: #0005;\n            color: #f00;\n        }\n    }\n"])), function (props) {
-  return props.right ? "0" : "";
-}, function (props) {
-  return props.right ? "0" : "";
-});
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Carrusel);
-
-/***/ }),
-
-/***/ "./resources/js/components/CarruselSecondVersion.jsx":
-/*!***********************************************************!*\
-  !*** ./resources/js/components/CarruselSecondVersion.jsx ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _material_ui_icons_ArrowBackIos__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/icons/ArrowBackIos */ "./node_modules/@material-ui/icons/ArrowBackIos.js");
-/* harmony import */ var _material_ui_icons_ArrowForwardIos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/icons/ArrowForwardIos */ "./node_modules/@material-ui/icons/ArrowForwardIos.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject, _templateObject2, _templateObject3, _templateObject4;
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-
-
-
-
-
-
-
-function CarruselSecondVersion(_ref) {
-  var children = _ref.children;
-  // console.log("entre", children.length);
-  var refSizeSlider = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);
-  var sliderRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null); // const intervalRef = useRef(null);
-  // const carruselRef = useRef(null);
-
-  var leftFunction = function leftFunction() {
-    var index = sliderRef.current.children.length - 1;
-    var lastElement = sliderRef.current.children[index];
-    sliderRef.current.insertBefore(lastElement, sliderRef.current.firstChild);
-    sliderRef.current.style.transition = "none";
-    sliderRef.current.style.transform = "translateX(-".concat(100 / children.length, "%)");
-    setTimeout(function () {
-      sliderRef.current.style.transition = "all 0.5s ease-in-out";
-      sliderRef.current.style.transform = "translateX(0)";
-    }, 30);
-  };
-
-  var rightFunction = function rightFunction() {
-    if (sliderRef.current.children.length > 0) {
-      var firstChild = sliderRef.current.children[0];
-      sliderRef.current.style.transition = "all 500ms ease-in-out";
-      sliderRef.current.style.transform = "translateX(-".concat(100 / children.length, "%)");
-
-      var finishTransition = function finishTransition() {
-        sliderRef.current.style.transition = "none";
-        sliderRef.current.style.transform = "translateX(0)";
-        sliderRef.current.appendChild(firstChild);
-        sliderRef.current.removeEventListener("transitionend", finishTransition);
-      };
-
-      sliderRef.current.addEventListener("transitionend", finishTransition);
-    }
-  }; // useEffect(() => {
-  //     const enterCarrusel = () => {
-  //         clearInterval(intervalRef.current);
-  //     };
-  //     const outCarrusel = () => {
-  //         intervalRef.current = setInterval(() => {
-  //             rightFunction();
-  //         }, 2000);
-  //     };
-  //     intervalRef.current = setInterval(() => {
-  //         rightFunction();
-  //     }, 2000);
-  //     carruselRef.current.addEventListener("mouseenter", enterCarrusel);
-  //     carruselRef.current.addEventListener("mouseout", outCarrusel);
-  // }, []);
-
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(ContinerCarrusel, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(ShowSlider, {
-      ref: sliderRef,
-      index: children.length,
-      children: children
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(ContinerButtons, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Button, {
-        onClick: leftFunction,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_icons_ArrowBackIos__WEBPACK_IMPORTED_MODULE_2__.default, {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Button, {
-        right: true,
-        onClick: rightFunction,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_icons_ArrowForwardIos__WEBPACK_IMPORTED_MODULE_3__.default, {})
-      })]
-    })]
-  });
-}
-
-var ContinerCarrusel = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    position: relative;\n    width: 100%;\n    height: auto;\n    overflow: hidden;\n"])));
-var ShowSlider = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    position: relative;\n    height: auto;\n    width: ", ";\n    display: flex;\n    flex-wrap: nowrap;\n    @media (min-width: 550px) {\n        width: ", ";\n    }\n"])), function (props) {
-  return "".concat(props.index * 100, "%");
-}, function (props) {
-  return "".concat(props.index * 220, "px");
-});
-var ContinerButtons = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    position: relative;\n    width: 100%;\n    height: 40px;\n    padding-top: 4px;\n    pointer-events: none;\n    top: 0;\n    left: 0;\n    @media (min-width: 550px) {\n        position: absolute;\n        width: 100%;\n        height: 100%;\n        pointer-events: none;\n        top: 0;\n        left: 0;\n    }\n"])));
-var Button = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.button(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    position: relative;\n    width: 50%;\n    height: 100%;\n    top: 0;\n    right: ", ";\n    pointer-events: all;\n    background-color: #9995;\n    cursor: pointer;\n    border: 1px solid #999;\n    outline: none;\n    color: #fff;\n    &:hover {\n        background-color: #999;\n        border-color: #f00;\n    }\n    @media (min-width: 550px) {\n        position: absolute;\n        width: 10%;\n        height: 100%;\n        top: 0;\n        right: ", ";\n        pointer-events: all;\n        background-color: #0001;\n        cursor: pointer;\n        border: none;\n        outline: none;\n        color: #fff;\n        transition: color 0.3s ease-in-out;\n        transition: background 0.3s ease-in-out;\n        &:hover {\n            background-color: #0005;\n            color: #f00;\n        }\n    }\n"])), function (props) {
-  return props.right ? "0" : "";
-}, function (props) {
-  return props.right ? "0" : "";
-});
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CarruselSecondVersion);
-
-/***/ }),
-
-/***/ "./resources/js/components/CategoriesAccordion.jsx":
-/*!*********************************************************!*\
-  !*** ./resources/js/components/CategoriesAccordion.jsx ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _CarruselSecondVersion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CarruselSecondVersion */ "./resources/js/components/CarruselSecondVersion.jsx");
-/* harmony import */ var _SliderOfert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SliderOfert */ "./resources/js/components/SliderOfert.jsx");
-/* harmony import */ var _dataSliders__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dataSliders */ "./resources/js/components/dataSliders.js");
-/* harmony import */ var _constant_dataSliders_2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../constant/dataSliders_2 */ "./resources/js/constant/dataSliders_2.js");
-/* harmony import */ var _constant_dataSliders_3__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../constant/dataSliders_3 */ "./resources/js/constant/dataSliders_3.js");
-/* harmony import */ var _hooks_useCategoriesAccordion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../hooks/useCategoriesAccordion */ "./resources/js/hooks/useCategoriesAccordion.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject;
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-
-
-
-
-
-
-
-
-
-
-
-
-function CategoriesAccordion(_ref) {
-  var listCategories = _ref.listCategories;
-
-  var _useCategoriesAccordi = (0,_hooks_useCategoriesAccordion__WEBPACK_IMPORTED_MODULE_6__.default)(),
-      selectCategori = _useCategoriesAccordi.selectCategori,
-      handleCategory = _useCategoriesAccordi.handleCategory;
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(ContinerCategoriesAccordion, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-      className: "continer",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        className: "continer2",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-          className: "continerTextsCategories",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-            className: "continer",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-              className: "continer2",
-              children: listCategories.map(function (catg, index) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-                  className: "category ".concat(selectCategori[catg] ? "isSelectCategory" : ""),
-                  "data-category": "".concat(catg),
-                  onClick: function onClick(e) {
-                    return handleCategory(e);
-                  },
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {
-                    "data-category": catg,
-                    children: catg
-                  })
-                }, index);
-              })
-            })
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-          className: "continerCarrusels",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(CarruselCategorySelected, {
-            selectCategory: selectCategori
-          })
-        })]
-      })
-    })
-  });
-}
-
-function CarruselCategorySelected(_ref2) {
-  var selectCategory = _ref2.selectCategory;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-    children: [selectCategory["smartphone"] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(CarruselCategory, {
-      slidersCategories: _dataSliders__WEBPACK_IMPORTED_MODULE_3__.default
-    }) : null, selectCategory["watch"] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(CarruselCategory, {
-      slidersCategories: _constant_dataSliders_2__WEBPACK_IMPORTED_MODULE_4__.default
-    }) : null, selectCategory["laptop"] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(CarruselCategory, {
-      slidersCategories: _constant_dataSliders_3__WEBPACK_IMPORTED_MODULE_5__.default
-    }) : null, selectCategory["tablet"] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(CarruselCategory, {
-      slidersCategories: _dataSliders__WEBPACK_IMPORTED_MODULE_3__.default
-    }) : null]
-  });
-}
-
-function CarruselCategory(_ref3) {
-  var slidersCategories = _ref3.slidersCategories;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_CarruselSecondVersion__WEBPACK_IMPORTED_MODULE_1__.default, {
-    children: slidersCategories.map(function (elem, index) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SliderOfert__WEBPACK_IMPORTED_MODULE_2__.default, {
-        image: elem.image,
-        urlSliderOfert: elem.urlSliderOfert,
-        urlNameProduct: elem.urlNameProduct,
-        textNameProduct: elem.textNameProduct,
-        textPriceProduct: elem.textPriceProduct,
-        textPriceReductionProduct: elem.textPriceReductionProduct,
-        textStriking: elem.textStriking,
-        textViewProduct: elem.textViewProduct,
-        urlViewProduct: elem.urlViewProduct
-      }, index);
-    })
-  });
-}
-
-var ContinerCategoriesAccordion = styled_components__WEBPACK_IMPORTED_MODULE_8__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    height: auto;\n    position: relative;\n    border: 1px solid #999;\n    margin-bottom: 32px;\n    & > .continer {\n        width: 100%;\n        height: auto;\n        position: relative;\n        & > .continer2 {\n            width: 100%;\n            height: auto;\n            position: relative;\n            display: flex;\n            flex-direction: column;\n            justify-content: flex-start;\n            align-items: stretch;\n\n            .continerTextsCategories {\n                width: 100%;\n                height: auto;\n                position: relative;\n                & > .continer {\n                    width: 100%;\n                    height: auto;\n                    position: relative;\n                    & > .continer2 {\n                        width: 100%;\n                        height: auto;\n                        position: relative;\n                        display: flex;\n                        flex-direction: column;\n                        justify-content: flex-start;\n                        align-items: stretch;\n                        .category {\n                            width: 100%;\n                            height: 40px;\n                            position: relative;\n                            background-color: #ddd;\n                            border: 1px solid #ccc;\n                            cursor: pointer;\n                            & > h1 {\n                                width: 100%;\n                                height: 100%;\n                                position: relative;\n                                display: flex;\n                                justify-content: center;\n                                align-items: center;\n                                color: #111;\n                                font-size: 1rem;\n                            }\n                        }\n                        .isSelectCategory {\n                            background-color: #aaa;\n                        }\n                    }\n                }\n            }\n\n            .continerCarrusels {\n                margin: 16px 0;\n                width: 100%;\n                height: auto;\n                position: relative;\n            }\n        }\n    }\n    @media (min-width: 550px) {\n        & > .continer {\n            & > .continer2 {\n                .continerTextsCategories {\n                    border-bottom: 1px solid #aaa;\n                    background-color: #444;\n                    & > .continer {\n                        & > .continer2 {\n                            flex-direction: row;\n                            align-items: center;\n                            .category {\n                                width: auto;\n                                padding: 8px;\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n"])));
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CategoriesAccordion);
-
-/***/ }),
-
 /***/ "./resources/js/components/ContactSection.jsx":
 /*!****************************************************!*\
   !*** ./resources/js/components/ContactSection.jsx ***!
@@ -6841,10 +6502,10 @@ var ContinerContactSection = styled_components__WEBPACK_IMPORTED_MODULE_15__.def
 
 /***/ }),
 
-/***/ "./resources/js/components/Footer.jsx":
-/*!********************************************!*\
-  !*** ./resources/js/components/Footer.jsx ***!
-  \********************************************/
+/***/ "./resources/js/components/FormLogin.jsx":
+/*!***********************************************!*\
+  !*** ./resources/js/components/FormLogin.jsx ***!
+  \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6853,9 +6514,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject;
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _hooks_useFormLogin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hooks/useFormLogin */ "./resources/js/hooks/useFormLogin.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _templateObject, _templateObject2;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -6864,36 +6526,149 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-function Footer(_ref) {
-  var copyright = _ref.copyright,
-      subTitle = _ref.subTitle,
-      linksFooter = _ref.linksFooter;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(ContinerFooter, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+var formRegisterData = {
+  headerForm: [{
+    title: "home",
+    href: "/"
+  }, {
+    title: "login",
+    href: "#"
+  }],
+  form: {
+    title: "log in to your account",
+    section_1: {
+      inputUser: {
+        title: "email address",
+        placeholder: "type your email address",
+        require: false
+      },
+      inputPassword: {
+        title: "password",
+        placeholder: "**********",
+        require: false
+      },
+      checkbox: {
+        title: "Remember me"
+      },
+      link_1: {
+        title: "forgotten password?",
+        href: "#"
+      }
+    },
+    titleButton: "Login"
+  }
+};
+
+function FormLogin() {
+  var _useFormLogin = (0,_hooks_useFormLogin__WEBPACK_IMPORTED_MODULE_1__.default)(),
+      stateForm = _useFormLogin.stateForm,
+      submitForm = _useFormLogin.submitForm,
+      handleInputUser = _useFormLogin.handleInputUser,
+      handleInputPassword = _useFormLogin.handleInputPassword;
+
+  var inputUser = stateForm.inputUser,
+      inputPassword = stateForm.inputPassword;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ContinerFormRegister, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "continer",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "continer2",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          className: "continerTitles",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
-            className: "copyright",
-            children: copyright
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
-            className: "subtitle",
-            children: subTitle
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "continerLinksFooter",
-          children: linksFooter.map(function (link, index) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-              className: "link",
-              href: link.href,
-              children: link.title.split(" ").map(function (item, index) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                  children: item
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "rediredHeaderForm",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "continer",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "continer2",
+              children: formRegisterData.headerForm.map(function (elem, index) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+                  href: elem.href,
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+                    children: elem.title
+                  })
                 }, index);
               })
-            }, index);
+            })
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "continerForm",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "continer",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "continer2",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+                onSubmit: function onSubmit(e) {
+                  return submitForm(e);
+                },
+                className: "form",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                  type: "hidden",
+                  name: "_token",
+                  value: "{{ csrf_token() }}"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "headerForm",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+                    children: formRegisterData.form.title
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "sectionLogin",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                    className: "continer",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                      className: "continer2",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Input, {
+                        type: "text",
+                        id: "user",
+                        name: "user",
+                        title: formRegisterData.form.section_1.inputUser.title,
+                        placeholder: formRegisterData.form.section_1.inputUser.placeholder,
+                        require: formRegisterData.form.section_1.inputUser.require,
+                        state: inputUser.value,
+                        handleFunction: handleInputUser,
+                        error: inputUser.error,
+                        messageError: "invalid email"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Input, {
+                        type: "password",
+                        id: "password",
+                        name: "password",
+                        title: formRegisterData.form.section_1.inputPassword.title,
+                        placeholder: formRegisterData.form.section_1.inputPassword.placeholder,
+                        require: formRegisterData.form.section_1.inputPassword.require,
+                        state: inputPassword.value,
+                        handleFunction: handleInputPassword,
+                        error: inputPassword.error,
+                        messageError: "invalid password"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                        className: "continerCheckBox",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                          type: "checkbox",
+                          name: "check",
+                          id: "check"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                          htmlFor: "check",
+                          children: formRegisterData.form.section_1.checkbox.title
+                        })]
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                        className: "continerResumePassword",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                          className: "continer",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                            className: "continer2",
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+                              href: formRegisterData.form.section_1.link_1.href,
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+                                children: formRegisterData.form.section_1.link_1.title
+                              })
+                            })
+                          })
+                        })
+                      })]
+                    })
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                  children: formRegisterData.form.titleButton
+                })]
+              })
+            })
           })
         })]
       })
@@ -6901,8 +6676,47 @@ function Footer(_ref) {
   });
 }
 
-var ContinerFooter = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    height: auto;\n    position: relative;\n    background-color: #222;\n    & > .continer {\n        width: 100%;\n        height: auto;\n        position: relative;\n        padding: 16px;\n        & > .continer2 {\n            width: 100%;\n            height: auto;\n            position: relative;\n            display: flex;\n            flex-direction: column;\n            align-items: stretch;\n            justify-content: flex-start;\n            & > .continerTitles {\n                width: 100%;\n                height: auto;\n                position: relative;\n                display: flex;\n                flex-wrap: wrap;\n                justify-content: center;\n                align-items: center;\n                align-content: center;\n                margin-bottom: 16px;\n                .copyright {\n                    font-size: 1.2rem;\n                    color: #ddd;\n                    text-align: center;\n                    margin-right: 8px;\n                }\n                & > .subtitle {\n                    font-size: 1rem;\n                    color: #ddd;\n                    text-align: center;\n                }\n            }\n            .continerLinksFooter {\n                width: 100%;\n                height: auto;\n                position: relative;\n                display: flex;\n                flex-wrap: wrap;\n                justify-content: center;\n                align-items: center;\n                align-content: center;\n                & > .link {\n                    font-size: 1rem;\n                    color: #aaa;\n                    text-decoration: none;\n                    margin-right: 8px;\n                    margin-bottom: 8px;\n                    &:hover {\n                        & > span {\n                            color: #f00;\n                        }\n                    }\n                    & > span {\n                        margin-right: 4px;\n                        &::first-letter {\n                            text-transform: uppercase;\n                        }\n                    }\n                }\n            }\n        }\n    }\n    @media (min-width: 700px) {\n        & > .continer {\n            padding: 64px;\n            & > .continer2 {\n                & > .continerTitles {\n                    .copyright {\n                        font-size: 2rem;\n                    }\n                    & > .subtitle {\n                        font-size: 1.8rem;\n                    }\n                }\n                .continerLinksFooter {\n                    & > .link {\n                        font-size: 1.3rem;\n                    }\n                }\n            }\n        }\n    }\n"])));
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Footer);
+function Input(_ref) {
+  var type = _ref.type,
+      id = _ref.id,
+      name = _ref.name,
+      title = _ref.title,
+      placeholder = _ref.placeholder,
+      require = _ref.require,
+      state = _ref.state,
+      handleFunction = _ref.handleFunction,
+      error = _ref.error,
+      messageError = _ref.messageError;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ContinerInput, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "continer",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "continer2 ".concat(error ? "error" : ""),
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("label", {
+          htmlFor: "".concat(id),
+          children: [title, require ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+            children: "*"
+          }) : null]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+          type: "".concat(type),
+          name: "".concat(name),
+          id: "".concat(id),
+          placeholder: placeholder,
+          value: state,
+          onChange: function onChange(e) {
+            return handleFunction(e);
+          }
+        }), error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+          children: messageError
+        }) : null]
+      })
+    })
+  });
+}
+
+var ContinerFormRegister = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    height: auto;\n    position: relative;\n    & > .continer {\n        width: 100%;\n        height: auto;\n        position: relative;\n        padding: 32px 16px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        & > .continer2 {\n            max-width: 1200px;\n            width: 100%;\n            height: auto;\n            position: relative;\n            display: flex;\n            flex-direction: column;\n            align-items: stretch;\n            justify-content: flex-start;\n            .rediredHeaderForm {\n                width: 100%;\n                height: auto;\n                position: relative;\n                & > .continer {\n                    width: 100%;\n                    height: auto;\n                    position: relative;\n                    display: flex;\n                    justify-content: center;\n                    align-items: center;\n                    & > .continer2 {\n                        max-width: 1100px;\n                        width: 100%;\n                        height: 30px;\n                        position: relative;\n                        display: flex;\n                        justify-content: flex-start;\n                        align-items: stretch;\n                        & > a {\n                            width: auto;\n                            text-decoration: none;\n                            display: flex;\n                            justify-content: center;\n                            align-items: center;\n                            & > h1 {\n                                text-align: center;\n                                text-transform: uppercase;\n                                position: relative;\n                                color: #000;\n                                font-size: 1rem;\n                                padding: 0 16px;\n                            }\n                            &:not(:last-child) {\n                                & > h1 {\n                                    &::before {\n                                        position: absolute;\n                                        content: \"/\";\n                                        top: 0;\n                                        left: 100%;\n                                        color: #000;\n                                        font-size: 1rem;\n                                    }\n                                }\n                            }\n                            &:first-child {\n                                & > h1 {\n                                    padding-left: 0;\n                                }\n                                &:hover > h1 {\n                                    color: #f00;\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n            .continerForm {\n                width: 100%;\n                height: auto;\n                position: relative;\n                & > .continer {\n                    width: 100%;\n                    height: auto;\n                    position: relative;\n                    display: flex;\n                    justify-content: center;\n                    align-items: center;\n                    & > .continer2 {\n                        width: 100%;\n                        height: auto;\n                        position: relative;\n                        display: flex;\n                        align-items: center;\n                        justify-content: center;\n                        & > .form {\n                            width: 100%;\n                            height: auto;\n                            display: flex;\n                            flex-direction: column;\n                            justify-content: flex-start;\n                            align-items: stretch;\n                            padding: 16px;\n                            border: 1px solid #fff;\n                            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5),\n                                0 2px 4px -1px rgba(0, 0, 0, 0.06);\n                            /* box-shadow: 15px 15px 25px #0005; */\n                            & > .headerForm {\n                                width: 100%;\n                                height: auto;\n                                position: relative;\n                                & > h1 {\n                                    height: auto;\n                                    width: 100%;\n                                    text-align: left;\n                                    padding: 8px 0;\n                                    font-size: 1.5rem;\n                                    text-transform: uppercase;\n                                    color: #000;\n                                }\n                            }\n                            .sectionLogin {\n                                width: 100%;\n                                height: auto;\n                                position: relative;\n                                & > .continer {\n                                    width: 100%;\n                                    height: auto;\n                                    position: relative;\n                                    & > .continer2 {\n                                        width: 100%;\n                                        height: auto;\n                                        position: relative;\n                                        display: flex;\n                                        flex-direction: column;\n                                        align-items: stretch;\n                                        justify-content: flex-start;\n                                        .continerCheckBox {\n                                            width: 100%;\n                                            height: auto;\n                                            display: flex;\n                                            padding: 8px 0 16px 0;\n                                            align-items: center;\n                                            justify-content: flex-start;\n                                            & > input[type=\"checkbox\"] {\n                                                margin-right: 4px;\n                                            }\n                                            & > label {\n                                                font-size: 1rem;\n                                                color: #000;\n                                                &::first-letter {\n                                                    text-transform: uppercase;\n                                                }\n                                            }\n                                        }\n                                        .continerResumePassword {\n                                            width: 100%;\n                                            height: auto;\n                                            position: relative;\n                                            padding: 0 0 16px 0;\n                                            & > .continer {\n                                                width: 100%;\n                                                height: auto;\n                                                position: relative;\n                                                & > .continer2 {\n                                                    width: 100%;\n                                                    height: auto;\n                                                    display: flex;\n                                                    justify-content: flex-end;\n                                                    align-items: center;\n                                                    & > a {\n                                                        width: auto;\n                                                        height: auto;\n                                                        position: relative;\n                                                        text-decoration: none;\n                                                        padding: 4px 0 4px 4px;\n                                                        cursor: pointer;\n                                                        transition: all 0.3s\n                                                            ease-in-out;\n                                                        & > h3 {\n                                                            font-size: 1rem;\n                                                            color: #000;\n                                                            text-align: right;\n                                                            transition: all 0.3s\n                                                                ease-in-out;\n\n                                                            &::first-letter {\n                                                                text-transform: uppercase;\n                                                            }\n                                                        }\n                                                        &:hover {\n                                                            & > h3 {\n                                                                color: #f00;\n                                                            }\n                                                        }\n                                                    }\n                                                }\n                                            }\n                                        }\n                                    }\n                                }\n                            }\n                            & > button {\n                                align-self: flex-end;\n                                font-size: 1rem;\n                                text-align: center;\n                                border: none;\n                                background-color: #f00;\n                                border-radius: 5px;\n                                color: #fff;\n                                text-transform: uppercase;\n                                padding: 16px;\n                                cursor: pointer;\n                                border: 3px solid #f00;\n                                transition: all 0.3s ease-in-out;\n                                &:hover {\n                                    background-color: transparent;\n                                    color: #f00;\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n    @media (min-width: 750px) and (max-width: 900px) {\n        & > .continer {\n            & > .continer2 {\n                align-items: flex-start;\n                .continerForm {\n                    & > .continer {\n                        & > .continer2 {\n                            width: 350px;\n                        }\n                    }\n                }\n            }\n        }\n    }\n    @media (min-width: 900px) {\n        & > .continer {\n            & > .continer2 {\n                align-items: center;\n                .rediredHeaderForm {\n                    /* width: 100%; */\n                }\n                .continerForm {\n                    & > .continer {\n                        padding: 36px 0;\n                        & > .continer2 {\n                            width: 550px;\n                            & > .form {\n                                padding: 32px 64px;\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n"])));
+var ContinerInput = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: auto;\n    position: relative;\n    & > .continer {\n        width: 100%;\n        height: auto;\n        position: relative;\n        padding: 8px 0;\n        & > .continer2 {\n            width: 100%;\n            height: auto;\n            position: relative;\n            display: flex;\n            flex-direction: column;\n            & > label {\n                &::first-letter {\n                    text-transform: uppercase;\n                }\n                font-size: 1rem;\n                height: 30px;\n                padding: 8px 0;\n                color: #000;\n                & > span {\n                    margin-left: 4px;\n                    color: #000;\n                    font-size: 1rem;\n                }\n            }\n            & > input {\n                width: 100%;\n                height: 35px;\n                color: #000;\n                background-color: #fff;\n                padding: 8px 0 2px 8px;\n                border: 1px solid #000077;\n                border-radius: 5px;\n                outline: none;\n                &::placeholder {\n                    padding: 10px 0 0 8px;\n                    color: #00aa00;\n                }\n            }\n        }\n        & > .error {\n            & > input {\n                border-color: #f00;\n            }\n            & > h3 {\n                width: 100%;\n                font-size: 0.8rem;\n                color: #f00;\n                text-transform: uppercase;\n            }\n        }\n    }\n"])));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FormLogin);
 
 /***/ }),
 
@@ -7086,522 +6900,6 @@ function TypeCoins(_ref3) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeaderHome);
-
-/***/ }),
-
-/***/ "./resources/js/components/LatesProducts.jsx":
-/*!***************************************************!*\
-  !*** ./resources/js/components/LatesProducts.jsx ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _CarruselSecondVersion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CarruselSecondVersion */ "./resources/js/components/CarruselSecondVersion.jsx");
-/* harmony import */ var _SliderOfert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SliderOfert */ "./resources/js/components/SliderOfert.jsx");
-/* harmony import */ var _images_products_digital_01_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../images/products/digital_01.jpg */ "./resources/images/products/digital_01.jpg");
-/* harmony import */ var _images_products_digital_02_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../images/products/digital_02.jpg */ "./resources/images/products/digital_02.jpg");
-/* harmony import */ var _images_products_digital_03_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../images/products/digital_03.jpg */ "./resources/images/products/digital_03.jpg");
-/* harmony import */ var _images_products_digital_04_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../images/products/digital_04.jpg */ "./resources/images/products/digital_04.jpg");
-/* harmony import */ var _images_products_digital_05_jpg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../images/products/digital_05.jpg */ "./resources/images/products/digital_05.jpg");
-/* harmony import */ var _images_products_digital_06_jpg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../images/products/digital_06.jpg */ "./resources/images/products/digital_06.jpg");
-/* harmony import */ var _images_products_digital_07_jpg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../images/products/digital_07.jpg */ "./resources/images/products/digital_07.jpg");
-/* harmony import */ var _images_products_digital_08_jpg__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../images/products/digital_08.jpg */ "./resources/images/products/digital_08.jpg");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject;
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var sliders = [{
-  image: _images_products_digital_01_jpg__WEBPACK_IMPORTED_MODULE_3__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$250.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_digital_02_jpg__WEBPACK_IMPORTED_MODULE_4__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$450.00",
-  textPriceReductionProduct: "$550.00",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_digital_03_jpg__WEBPACK_IMPORTED_MODULE_5__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$150.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_digital_04_jpg__WEBPACK_IMPORTED_MODULE_6__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$1250.00",
-  textPriceReductionProduct: "$1650.00",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_digital_05_jpg__WEBPACK_IMPORTED_MODULE_7__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$550.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_digital_06_jpg__WEBPACK_IMPORTED_MODULE_8__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$250.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_digital_07_jpg__WEBPACK_IMPORTED_MODULE_9__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$250.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_digital_08_jpg__WEBPACK_IMPORTED_MODULE_10__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$250.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}];
-
-function LatesProducts(_ref) {
-  var title = _ref.title,
-      image = _ref.image,
-      urlLatesProduct = _ref.urlLatesProduct;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(ContinerLatesProduct, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-      className: "continer",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-        className: "continer2",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-          className: "continerTitle",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-            className: "continer",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-              className: "continer2",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h1", {
-                children: title
-              })
-            })
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-          className: "continerImage",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("figure", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("a", {
-              href: urlLatesProduct,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
-                src: image,
-                alt: ""
-              })
-            })
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-          className: "continerCarrusel",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_CarruselSecondVersion__WEBPACK_IMPORTED_MODULE_1__.default, {
-            children: sliders.map(function (elem, index) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_SliderOfert__WEBPACK_IMPORTED_MODULE_2__.default, {
-                image: elem.image,
-                urlSliderOfert: elem.urlSliderOfert,
-                urlNameProduct: elem.urlNameProduct,
-                textNameProduct: elem.textNameProduct,
-                textPriceProduct: elem.textPriceProduct,
-                textPriceReductionProduct: elem.textPriceReductionProduct,
-                textStriking: elem.textStriking,
-                textViewProduct: elem.textViewProduct,
-                urlViewProduct: elem.urlViewProduct
-              }, index);
-            })
-          })
-        })]
-      })
-    })
-  });
-}
-
-var ContinerLatesProduct = styled_components__WEBPACK_IMPORTED_MODULE_12__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    margin-top: 32px;\n    width: 100%;\n    height: auto;\n    position: relative;\n    & > .continer {\n        width: 100%;\n        height: auto;\n        position: relative;\n        & > .continer2 {\n            width: 100%;\n            height: auto;\n            position: relative;\n            display: flex;\n            flex-direction: column;\n            align-items: stretch;\n            justify-content: flex-start;\n            .continerTitle {\n                height: 40px;\n                display: flex;\n                background-color: #f00;\n                & > .continer {\n                    width: 100%;\n                    height: 100%;\n                    position: relative;\n                    & > .continer2 {\n                        width: 100%;\n                        height: 100%;\n                        position: relative;\n                        & > h1 {\n                            text-transform: uppercase;\n                            width: 100%;\n                            height: 100%;\n                            padding: 0 16px;\n                            display: flex;\n                            justify-content: flex-start;\n                            align-items: center;\n                            font-size: 1.2rem;\n                            color: #fff;\n                        }\n                    }\n                }\n            }\n            .continerImage {\n                height: 60px;\n                position: relative;\n                margin-bottom: 16px;\n                & > figure {\n                    width: 100%;\n                    height: 100%;\n                    position: relative;\n                    &::before,\n                    &::after {\n                        content: \"\";\n                        position: absolute;\n                        height: 100%;\n                        width: 0;\n                        background-color: #9995;\n                        top: 0;\n                        pointer-events: none;\n                        transition: all 0.3s ease-in-out;\n                    }\n                    &::before {\n                        left: 0;\n                    }\n                    &::after {\n                        right: 0;\n                    }\n                    &:hover {\n                        &::before,\n                        &::after {\n                            width: 50%;\n                        }\n                    }\n                    & > a {\n                        width: 100%;\n                        height: 100%;\n                        img {\n                            width: 100%;\n                            height: 100%;\n                        }\n                    }\n                }\n            }\n            .continerCarrusel {\n                width: 100%;\n                height: auto;\n                position: relative;\n            }\n        }\n    }\n    @media (min-width: 550px) and (max-width: 850px) {\n        & > .continer {\n            & > .continer2 {\n                & > .continerImage {\n                    height: 120px;\n                }\n            }\n        }\n    }\n    @media (min-width: 850px) {\n        & > .continer {\n            & > .continer2 {\n                & > .continerImage {\n                    height: 200px;\n                }\n            }\n        }\n    }\n"])));
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LatesProducts);
-
-/***/ }),
-
-/***/ "./resources/js/components/Oferts.jsx":
-/*!********************************************!*\
-  !*** ./resources/js/components/Oferts.jsx ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _OnSale__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OnSale */ "./resources/js/components/OnSale.jsx");
-/* harmony import */ var _LatesProducts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LatesProducts */ "./resources/js/components/LatesProducts.jsx");
-/* harmony import */ var _images_digital_electronic_banner_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../images/digital-electronic-banner.jpg */ "./resources/images/digital-electronic-banner.jpg");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject;
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-
-
-
-
-
-
-
-
-function Oferts(_ref) {
-  var titleOnsale = _ref.titleOnsale,
-      titleLatestProduct = _ref.titleLatestProduct,
-      textDays = _ref.textDays,
-      textHors = _ref.textHors,
-      textMin = _ref.textMin,
-      textSec = _ref.textSec,
-      urlLatesProduct = _ref.urlLatesProduct;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ContinerOferts, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: "continer",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        className: "continer2",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_OnSale__WEBPACK_IMPORTED_MODULE_1__.default, {
-          title: titleOnsale,
-          textDays: textDays,
-          textHors: textHors,
-          textMin: textMin,
-          textSec: textSec
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LatesProducts__WEBPACK_IMPORTED_MODULE_2__.default, {
-          title: titleLatestProduct,
-          image: _images_digital_electronic_banner_jpg__WEBPACK_IMPORTED_MODULE_3__.default,
-          urlLatesProduct: urlLatesProduct
-        })]
-      })
-    })
-  });
-}
-
-var ContinerOferts = styled_components__WEBPACK_IMPORTED_MODULE_5__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    height: auto;\n    position: relative;\n    margin-bottom: 32px;\n    & > .continer {\n        width: 100%;\n        height: auto;\n        position: relative;\n        padding: 0 16px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        & > .continer2 {\n            max-width: 1100px;\n            width: 100%;\n            height: auto;\n            position: relative;\n            display: flex;\n            flex-direction: column;\n            flex-wrap: nowrap;\n            justify-content: flex-start;\n            align-items: center;\n        }\n    }\n"])));
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Oferts);
-
-/***/ }),
-
-/***/ "./resources/js/components/OnSale.jsx":
-/*!********************************************!*\
-  !*** ./resources/js/components/OnSale.jsx ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _TimesOferts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TimesOferts */ "./resources/js/components/TimesOferts.jsx");
-/* harmony import */ var _CarruselSecondVersion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CarruselSecondVersion */ "./resources/js/components/CarruselSecondVersion.jsx");
-/* harmony import */ var _SliderOfert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SliderOfert */ "./resources/js/components/SliderOfert.jsx");
-/* harmony import */ var _dataSliders__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dataSliders */ "./resources/js/components/dataSliders.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject;
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-
-
-
-
-
-
-
-
-
-function OnSale(_ref) {
-  var title = _ref.title,
-      textDays = _ref.textDays,
-      textHors = _ref.textHors,
-      textMin = _ref.textMin,
-      textSec = _ref.textSec;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(ContinerOnSale, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      className: "continer",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "continer2",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "continerTitle",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-            className: "continer_continerTitle",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-              className: "continer2_continerTitle",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
-                children: title
-              })
-            })
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_TimesOferts__WEBPACK_IMPORTED_MODULE_1__.default, {
-          textDays: textDays,
-          textHors: textHors,
-          textMin: textMin,
-          textSec: textSec
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "continerCarrusel",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_CarruselSecondVersion__WEBPACK_IMPORTED_MODULE_2__.default, {
-            children: _dataSliders__WEBPACK_IMPORTED_MODULE_4__.default.map(function (elem, index) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SliderOfert__WEBPACK_IMPORTED_MODULE_3__.default, {
-                image: elem.image,
-                urlSliderOfert: elem.urlSliderOfert,
-                urlNameProduct: elem.urlNameProduct,
-                textNameProduct: elem.textNameProduct,
-                textPriceProduct: elem.textPriceProduct,
-                textPriceReductionProduct: elem.textPriceReductionProduct,
-                textStriking: elem.textStriking,
-                textViewProduct: elem.textViewProduct,
-                urlViewProduct: elem.urlViewProduct
-              }, index);
-            })
-          })
-        })]
-      })
-    })
-  });
-}
-
-var ContinerOnSale = styled_components__WEBPACK_IMPORTED_MODULE_6__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    height: auto;\n    position: relative;\n    & > .continer {\n        width: 100%;\n        height: auto;\n        position: relative;\n        & > .continer2 {\n            width: 100%;\n            height: auto;\n            position: relative;\n            display: flex;\n            flex-direction: column;\n            justify-content: flex-start;\n            align-items: stretch;\n            & > .continerTitle {\n                height: 40px;\n                width: 100%;\n                position: relative;\n                background-color: #f00;\n                .continer_continerTitle {\n                    width: 100%;\n                    height: 100%;\n                    position: relative;\n                    .continer2_continerTitle {\n                        width: 100%;\n                        height: 100%;\n                        position: relative;\n                        h1 {\n                            width: 100%;\n                            height: 100%;\n                            position: relative;\n                            display: flex;\n                            align-items: center;\n                            justify-content: flex-start;\n                            padding: 0 16px;\n                            color: #fff;\n                            font-size: 1.2rem;\n                        }\n                    }\n                }\n            }\n            & > .continerCarrusel {\n                width: 100%;\n                height: auto;\n                position: relative;\n            }\n        }\n    }\n"])));
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OnSale);
-
-/***/ }),
-
-/***/ "./resources/js/components/ProductCategories.jsx":
-/*!*******************************************************!*\
-  !*** ./resources/js/components/ProductCategories.jsx ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _CategoriesAccordion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CategoriesAccordion */ "./resources/js/components/CategoriesAccordion.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject;
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-
-
-
-
-
-
-function ProductCategories(_ref) {
-  var title = _ref.title,
-      image = _ref.image,
-      urlProductCategories = _ref.urlProductCategories;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ContinerProductCategories, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "continer",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "continer2",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "continerTitle",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "continer",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "continer2",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-                children: title
-              })
-            })
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "continerImage",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("figure", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-              href: urlProductCategories,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-                src: image,
-                alt: ""
-              })
-            })
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_CategoriesAccordion__WEBPACK_IMPORTED_MODULE_1__.default, {
-          listCategories: ["smartphone", "watch", "laptop", "tablet"]
-        })]
-      })
-    })
-  });
-}
-
-var ContinerProductCategories = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    margin-top: 32px;\n    width: 100%;\n    height: auto;\n    position: relative;\n    & > .continer {\n        width: 100%;\n        height: auto;\n        position: relative;\n        padding: 0 16px;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        & > .continer2 {\n            max-width: 1100px;\n            width: 100%;\n            height: auto;\n            position: relative;\n            display: flex;\n            flex-direction: column;\n            align-items: stretch;\n            justify-content: flex-start;\n            .continerTitle {\n                height: 40px;\n                display: flex;\n                background-color: #f00;\n                & > .continer {\n                    width: 100%;\n                    height: 100%;\n                    position: relative;\n                    & > .continer2 {\n                        width: 100%;\n                        height: 100%;\n                        position: relative;\n                        & > h1 {\n                            text-transform: uppercase;\n                            width: 100%;\n                            height: 100%;\n                            padding: 0 16px;\n                            display: flex;\n                            justify-content: flex-start;\n                            align-items: center;\n                            font-size: 1.2rem;\n                            color: #fff;\n                        }\n                    }\n                }\n            }\n            .continerImage {\n                height: 60px;\n                position: relative;\n                margin-bottom: 16px;\n                & > figure {\n                    width: 100%;\n                    height: 100%;\n                    position: relative;\n                    &::before,\n                    &::after {\n                        content: \"\";\n                        position: absolute;\n                        height: 100%;\n                        width: 0;\n                        background-color: #9995;\n                        top: 0;\n                        pointer-events: none;\n                        transition: all 0.3s ease-in-out;\n                    }\n                    &::before {\n                        left: 0;\n                    }\n                    &::after {\n                        right: 0;\n                    }\n                    &:hover {\n                        &::before,\n                        &::after {\n                            width: 50%;\n                        }\n                    }\n                    & > a {\n                        width: 100%;\n                        height: 100%;\n                        img {\n                            width: 100%;\n                            height: 100%;\n                        }\n                    }\n                }\n            }\n        }\n    }\n    @media (min-width: 550px) and (max-width: 850px) {\n        & > .continer {\n            & > .continer2 {\n                & > .continerImage {\n                    height: 120px;\n                }\n            }\n        }\n    }\n    @media (min-width: 850px) {\n        & > .continer {\n            & > .continer2 {\n                & > .continerImage {\n                    height: 200px;\n                }\n            }\n        }\n    }\n"])));
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductCategories);
-
-/***/ }),
-
-/***/ "./resources/js/components/Publicity.jsx":
-/*!***********************************************!*\
-  !*** ./resources/js/components/Publicity.jsx ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Carrusel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Carrusel */ "./resources/js/components/Carrusel.jsx");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _SliderSold__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SliderSold */ "./resources/js/components/SliderSold.jsx");
-/* harmony import */ var _SliderPublicity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SliderPublicity */ "./resources/js/components/SliderPublicity.jsx");
-/* harmony import */ var _images_main_slider_1_1_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../images/main-slider-1-1.jpg */ "./resources/images/main-slider-1-1.jpg");
-/* harmony import */ var _images_main_slider_1_2_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../images/main-slider-1-2.jpg */ "./resources/images/main-slider-1-2.jpg");
-/* harmony import */ var _images_main_slider_1_3_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../images/main-slider-1-3.jpg */ "./resources/images/main-slider-1-3.jpg");
-/* harmony import */ var _images_home_1_banner_1_jpg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../images/home-1-banner-1.jpg */ "./resources/images/home-1-banner-1.jpg");
-/* harmony import */ var _images_home_1_banner_2_jpg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../images/home-1-banner-2.jpg */ "./resources/images/home-1-banner-2.jpg");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject, _templateObject2;
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function Publicity() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(ContinerPublicity, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-      className: "continer_publicity",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-        className: "continer2_publicity",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-          className: "continerCarrusel",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_Carrusel__WEBPACK_IMPORTED_MODULE_1__.default, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_SliderSold__WEBPACK_IMPORTED_MODULE_2__.default, {
-              image: _images_main_slider_1_1_jpg__WEBPACK_IMPORTED_MODULE_4__.default,
-              title: "kid smart watches",
-              subtitle: "buy all your product smart for internet",
-              textPrice: "only price:",
-              price: "$59.99",
-              textButton: "shop now"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_SliderPublicity__WEBPACK_IMPORTED_MODULE_3__.default, {
-              image: _images_main_slider_1_2_jpg__WEBPACK_IMPORTED_MODULE_5__.default,
-              title: "extra 25% off",
-              subtitle_1: "on online payments",
-              subtitle_2: "get free",
-              subtitle_3: "transparent bra straps",
-              textCode: "use code",
-              code: "#fa6868"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_SliderSold__WEBPACK_IMPORTED_MODULE_2__.default, {
-              image: _images_main_slider_1_3_jpg__WEBPACK_IMPORTED_MODULE_6__.default,
-              title: "great range of exclusive",
-              subtitle: "furniture packages exclusive furniture packages to suit need",
-              textPrice: "stating at: ",
-              price: "$225.00",
-              textButton: "shop now"
-            })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-          className: "continerPublicitiesAloners",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(PublicityAloner, {
-            image: _images_home_1_banner_1_jpg__WEBPACK_IMPORTED_MODULE_7__.default
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(PublicityAloner, {
-            image: _images_home_1_banner_2_jpg__WEBPACK_IMPORTED_MODULE_8__.default
-          })]
-        })]
-      })
-    })
-  });
-}
-
-function PublicityAloner(_ref) {
-  var image = _ref.image;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(ContinerPublicityAloner, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-      className: "continer",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-        className: "continer2",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-          className: "continerImage",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
-            href: "#",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-              src: image,
-              alt: ""
-            })
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-          className: "animation"
-        })]
-      })
-    })
-  });
-}
-
-var ContinerPublicityAloner = styled_components__WEBPACK_IMPORTED_MODULE_10__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 525px;\n    width: 100%;\n    height: 100%;\n    position: relative;\n    margin: 16px 0;\n    .continer {\n        width: 100%;\n        height: 100%;\n        position: relative;\n        .continer2 {\n            width: 100%;\n            height: 100%;\n            position: relative;\n            .continerImage {\n                width: 100%;\n                height: 100%;\n                position: relative;\n                img {\n                    width: 100%;\n                    height: 100%;\n                }\n            }\n            .animation {\n                width: 0;\n                height: 0;\n                position: absolute;\n                top: 50%;\n                left: 50%;\n                bottom: 50%;\n                right: 50%;\n                pointer-events: none;\n                background-color: #0005;\n                transition: all 0.5s ease-in-out;\n            }\n\n            &:hover {\n                .animation {\n                    top: 0;\n                    left: 0;\n                    right: 0;\n                    bottom: 0;\n                    width: 100%;\n                    height: 100%;\n                }\n            }\n        }\n    }\n"])));
-var ContinerPublicity = styled_components__WEBPACK_IMPORTED_MODULE_10__.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    position: relative;\n    width: 100%;\n    height: auto;\n    margin-top: 16px;\n    .continer_publicity {\n        position: relative;\n        width: 100%;\n        height: auto;\n        padding: 0 16px;\n        .continer2_publicity {\n            position: relative;\n            width: 100%;\n            height: auto;\n            display: flex;\n            flex-direction: column;\n            justify-content: center;\n            align-items: center;\n            .continerPublicitiesAloners {\n                max-width: 1100px;\n                width: 100%;\n                height: auto;\n                position: relative;\n                display: flex;\n                flex-wrap: wrap;\n                justify-content: space-evenly;\n                align-items: center;\n                align-content: center;\n            }\n            .continerCarrusel {\n                max-width: 1100px;\n                width: 100%;\n                height: auto;\n                position: relative;\n            }\n        }\n    }\n"])));
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Publicity);
 
 /***/ }),
 
@@ -8039,322 +7337,6 @@ var ContinerCardService = styled_components__WEBPACK_IMPORTED_MODULE_2__.default
 
 /***/ }),
 
-/***/ "./resources/js/components/SliderOfert.jsx":
-/*!*************************************************!*\
-  !*** ./resources/js/components/SliderOfert.jsx ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject;
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-
-
-
-
-
-function SliderOfert(_ref) {
-  var image = _ref.image,
-      urlSliderOfert = _ref.urlSliderOfert,
-      urlNameProduct = _ref.urlNameProduct,
-      textNameProduct = _ref.textNameProduct,
-      textPriceProduct = _ref.textPriceProduct,
-      textPriceReductionProduct = _ref.textPriceReductionProduct,
-      textStriking = _ref.textStriking,
-      textViewProduct = _ref.textViewProduct,
-      urlViewProduct = _ref.urlViewProduct;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(ContinerSliderOfert, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "continer",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "continer2",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          className: "continerDescriptionProduct",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("figure", {
-            className: "continerImage",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-              src: image,
-              alt: ""
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-              className: "textStriking",
-              children: textStriking ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                children: textStriking
-              }) : null
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-              href: urlViewProduct,
-              className: "textViewProduct",
-              children: textViewProduct
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            className: "continerNameProduct",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-              href: urlNameProduct,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
-                children: textNameProduct
-              })
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            className: "continerPrice",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-              className: "continer",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                className: "continer2",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                  className: "textPrice ".concat(textPriceReductionProduct ? "ofertPrice" : ""),
-                  children: textPriceProduct
-                }), textPriceReductionProduct && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                  className: "textPriceOfert",
-                  children: textPriceReductionProduct
-                })]
-              })
-            })
-          })]
-        })
-      })
-    })
-  });
-}
-
-var ContinerSliderOfert = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 400px;\n    position: relative;\n    cursor: pointer;\n    & > .continer {\n        width: 100%;\n        height: 100%;\n        position: relative;\n        & > .continer2 {\n            width: 100%;\n            height: 100%;\n            position: relative;\n            .continerDescriptionProduct {\n                width: 100%;\n                height: 100%;\n                position: relative;\n                display: flex;\n                flex-direction: column;\n                justify-content: flex-start;\n                align-items: stretch;\n                border: 1px solid #fff;\n                &:hover {\n                    border-color: #ffa67b;\n                    .continerImage {\n                        img {\n                            transform: scale(1.09);\n                        }\n                    }\n                }\n                .continerImage {\n                    /* flex-basis: 80%; */\n                    height: 80%;\n                    position: relative;\n                    width: 100%;\n                    padding: 16px;\n                    img {\n                        transition: all 0.5s ease-in-out;\n                        width: 100%;\n                        height: 100%;\n                    }\n                    .textStriking {\n                        position: absolute;\n                        top: 5%;\n                        left: 5%;\n                        span {\n                            position: relative;\n                            width: 100px;\n                            height: 15px;\n                            background-color: #f00;\n                            font-size: 0.8rem;\n                            color: #fff;\n                            padding: 4px 8px;\n                            &::before {\n                                position: absolute;\n                                content: \"\";\n                                top: 100%;\n                                left: calc(50% - 5px);\n                                border-top: 5px solid #f00;\n                                border-right: 5px solid #fff;\n                                border-bottom: 5px solid #fff;\n                                border-left: 5px solid #fff;\n                            }\n                        }\n                    }\n                    .textViewProduct {\n                        position: absolute;\n                        bottom: 0;\n                        right: 5%;\n                        padding: 8px 8px;\n                        text-decoration: none;\n                        background-color: #000;\n                        color: #fff;\n                        font-size: 1rem;\n                        text-align: center;\n                        transition: all 0.3s ease-in-out;\n                        &::first-letter {\n                            text-transform: uppercase;\n                        }\n                        &:hover {\n                            background-color: #f00;\n                        }\n                    }\n                }\n                .continerNameProduct {\n                    flex-basis: 10%;\n                    width: 100%;\n                    a {\n                        width: 100%;\n                        height: 100%;\n                        text-decoration: none;\n                        color: #000;\n                        &:hover {\n                            color: #f00;\n                        }\n                        h1 {\n                            padding-left: 8px;\n                            width: 100%;\n                            height: 100%;\n                            font-size: 0.8rem;\n                            display: flex;\n                            justify-content: flex-start;\n                            align-items: center;\n                        }\n                    }\n                }\n                .continerPrice {\n                    flex-basis: 10%;\n                    width: 100%;\n                    position: relative;\n                    & > .continer {\n                        width: 100%;\n                        height: 100%;\n                        position: relative;\n                        padding-left: 8px;\n                        padding-bottom: 16px;\n                        & > .continer2 {\n                            width: 100%;\n                            height: 100%;\n                            position: relative;\n                            font-size: 1.2rem;\n                            display: flex;\n                            align-items: center;\n                            span {\n                                font-size: 1rem;\n                            }\n                            .textPrice {\n                                margin-right: 8px;\n                                color: #000;\n                            }\n                            .ofertPrice {\n                                color: #f00;\n                            }\n                            .textPriceOfert {\n                                color: #999;\n                                text-decoration: line-through;\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n    @media (min-width: 550px) {\n        width: 220px;\n    }\n"])));
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SliderOfert);
-
-/***/ }),
-
-/***/ "./resources/js/components/SliderPublicity.jsx":
-/*!*****************************************************!*\
-  !*** ./resources/js/components/SliderPublicity.jsx ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject;
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-
-
-
-
-
-function SliderPublicity(_ref) {
-  var image = _ref.image,
-      title = _ref.title,
-      subtitle_1 = _ref.subtitle_1,
-      subtitle_2 = _ref.subtitle_2,
-      subtitle_3 = _ref.subtitle_3,
-      textCode = _ref.textCode,
-      code = _ref.code;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(ContinerSlider, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "continerImage",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-        src: image,
-        alt: "#"
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "card",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "continer_card",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          className: "continerText",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
-            className: "title",
-            children: title
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
-            className: "subtitle_1",
-            children: subtitle_1
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: "continerCode",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: "textCode",
-              children: textCode
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: "code",
-              children: code
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
-            className: "subtitle_2",
-            children: subtitle_2
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
-            className: "subtitle_3",
-            children: subtitle_3
-          })]
-        })
-      })
-    })]
-  });
-}
-
-var ContinerSlider = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    min-height: 200px;\n    position: relative;\n    width: 100%;\n    height: 100%;\n    .continerImage {\n        min-height: 200px;\n        width: 100%;\n        height: 100%;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        img {\n            width: 100%;\n            height: 100%;\n            object-fit: contain;\n        }\n    }\n    .card {\n        min-height: 200px;\n        position: absolute;\n        width: 100%;\n        height: 100%;\n        top: 0;\n        left: 0;\n        .continer_card {\n            width: 100%;\n            height: 100%;\n            position: relative;\n            padding: 16px;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            .continerText {\n                max-width: 350px;\n                max-height: 180px;\n                width: 100%;\n                height: 100%;\n                padding: 8px;\n                position: relative;\n                background-color: #9997;\n                display: flex;\n                flex-direction: column;\n                align-items: flex-start;\n                justify-content: space-evenly;\n                transition: all 0.3s ease-in-out;\n                &:hover {\n                    z-index: 100;\n                    transform: scale(1.1);\n                    background-color: #999;\n                }\n                .title {\n                    font-size: 1rem;\n                    text-transform: uppercase;\n                    color: #f00;\n                    margin-bottom: 4px;\n                }\n                .subtitle_1 {\n                    font-size: 1.2rem;\n                    text-transform: lowercase;\n                    color: #fff;\n                    margin-bottom: 2px;\n                    &:first-letter {\n                        text-transform: uppercase;\n                    }\n                }\n                .subtitle_2 {\n                    font-size: 1.4rem;\n                    text-transform: uppercase;\n                    color: #111;\n                    margin-bottom: 2px;\n                }\n                .subtitle_3 {\n                    font-size: 1.4rem;\n                    text-transform: uppercase;\n                    color: #555;\n                    margin-bottom: 2px;\n                }\n                .continerCode {\n                    width: 80%;\n                    height: auto;\n                    position: relative;\n                    background-color: #111;\n                    padding: 6px;\n                    .textCode {\n                        font-size: 1.2rem;\n                        text-transform: uppercase;\n                        color: #fff;\n                    }\n                    .code {\n                        font-size: 1.2rem;\n                        text-transform: uppercase;\n                        color: #fff;\n                    }\n                }\n            }\n        }\n    }\n"])));
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SliderPublicity);
-
-/***/ }),
-
-/***/ "./resources/js/components/SliderSold.jsx":
-/*!************************************************!*\
-  !*** ./resources/js/components/SliderSold.jsx ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject;
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-
-
-
-
-
-function SliderSold(_ref) {
-  var image = _ref.image,
-      title = _ref.title,
-      subtitle = _ref.subtitle,
-      textPrice = _ref.textPrice,
-      price = _ref.price,
-      textButton = _ref.textButton;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(ContinerSlider, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "continerImage",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-        src: image,
-        alt: ""
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "card",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "continer_card",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          className: "continerText",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
-            children: title
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-            children: subtitle
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: "continerPrice",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: "textPrice",
-              children: textPrice
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: "price",
-              children: price
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-            children: textButton
-          })]
-        })
-      })
-    })]
-  });
-}
-
-var ContinerSlider = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    min-height: 200px;\n    position: relative;\n    width: 100%;\n    height: 100%;\n    .continerImage {\n        min-height: 200px;\n        width: 100%;\n        height: 100%;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        img {\n            width: 100%;\n            height: 100%;\n        }\n    }\n    .card {\n        min-height: 200px;\n        position: absolute;\n        width: 100%;\n        height: 100%;\n        top: 0;\n        left: 0;\n        .continer_card {\n            width: 100%;\n            height: 100%;\n            position: relative;\n            padding: 16px;\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            .continerText {\n                max-width: 350px;\n                max-height: 180px;\n                width: 100%;\n                height: 100%;\n                padding: 8px;\n                position: relative;\n                background-color: #9997;\n                display: flex;\n                flex-direction: column;\n                align-items: flex-start;\n                justify-content: space-evenly;\n                transition: all 0.3s ease-in-out;\n                &:hover {\n                    z-index: 100;\n                    transform: scale(1.1);\n                    background-color: #999;\n                }\n                h1 {\n                    font-size: 1.4rem;\n                    text-transform: uppercase;\n                    color: #fff;\n                    margin-bottom: 4px;\n                }\n                p {\n                    font-size: 1rem;\n                    text-transform: lowercase;\n                    color: #fff;\n                    margin-bottom: 4px;\n                }\n                .continerPrice {\n                    width: 100%;\n                    height: auto;\n                    position: relative;\n                    .textPrice {\n                        font-size: 0.8rem;\n                        text-transform: uppercase;\n                        color: #0f0;\n                    }\n                    .price {\n                        font-size: 1rem;\n                        text-transform: uppercase;\n                        color: #f00;\n                    }\n                }\n                & > button {\n                    outline: none;\n                    border: none;\n                    height: 40px;\n                    width: 120px;\n                    color: #fff;\n                    background-color: #f00;\n                    cursor: pointer;\n                }\n            }\n        }\n    }\n"])));
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SliderSold);
-
-/***/ }),
-
-/***/ "./resources/js/components/TimesOferts.jsx":
-/*!*************************************************!*\
-  !*** ./resources/js/components/TimesOferts.jsx ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject;
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-
-
-
-
-
-function TimesOferts(_ref) {
-  var textDays = _ref.textDays,
-      textHors = _ref.textHors,
-      textMin = _ref.textMin,
-      textSec = _ref.textSec;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(ContinerTimesOferts, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "continer",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "continer2",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          className: "continerClock",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-              className: "timeNum",
-              children: "00"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-              className: "timeText",
-              children: textDays
-            }), ":"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-              className: "timeNum",
-              children: "00"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-              className: "timeText",
-              children: textHors
-            }), ":"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-              className: "timeNum",
-              children: "00"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-              className: "timeText",
-              children: textMin
-            }), ":"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-              className: "timeNum",
-              children: "00"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-              className: "timeText",
-              children: textSec
-            }), ""]
-          })]
-        })
-      })
-    })
-  });
-}
-
-var ContinerTimesOferts = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 40px;\n    position: relative;\n    background-color: #ddd;\n    & > .continer {\n        width: 100%;\n        height: 100%;\n        position: relative;\n        & > .continer2 {\n            width: 100%;\n            height: 100%;\n            position: relative;\n            .continerClock {\n                width: 100%;\n                height: 100%;\n                position: relative;\n                padding: 0 16px;\n                display: flex;\n                justify-content: center;\n                align-items: center;\n                span {\n                    color: #111;\n                    font-size: 1rem;\n                    &:not(:last-child) {\n                        margin-right: 4px;\n                    }\n                    .timeNum {\n                        margin-right: 2px;\n                    }\n                    .timeText {\n                        color: #777;\n                    }\n                }\n            }\n        }\n    }\n"])));
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TimesOferts);
-
-/***/ }),
-
 /***/ "./resources/js/components/contact/CardPayments.jsx":
 /*!**********************************************************!*\
   !*** ./resources/js/components/contact/CardPayments.jsx ***!
@@ -8773,10 +7755,10 @@ var ContinerSocialNetwork = styled_components__WEBPACK_IMPORTED_MODULE_2__.defau
 
 /***/ }),
 
-/***/ "./resources/js/components/dataSliders.js":
-/*!************************************************!*\
-  !*** ./resources/js/components/dataSliders.js ***!
-  \************************************************/
+/***/ "./resources/js/components/footer.jsx":
+/*!********************************************!*\
+  !*** ./resources/js/components/footer.jsx ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -8784,348 +7766,57 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _images_products_tools_equipment_7_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../images/products/tools_equipment_7.jpg */ "./resources/images/products/tools_equipment_7.jpg");
-/* harmony import */ var _images_products_tools_equipment_3_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../images/products/tools_equipment_3.jpg */ "./resources/images/products/tools_equipment_3.jpg");
-/* harmony import */ var _images_products_tools_equipment_5_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../images/products/tools_equipment_5.jpg */ "./resources/images/products/tools_equipment_5.jpg");
-/* harmony import */ var _images_products_digital_01_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../images/products/digital_01.jpg */ "./resources/images/products/digital_01.jpg");
-/* harmony import */ var _images_products_digital_05_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../images/products/digital_05.jpg */ "./resources/images/products/digital_05.jpg");
-/* harmony import */ var _images_products_fashion_06_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../images/products/fashion_06.jpg */ "./resources/images/products/fashion_06.jpg");
-/* harmony import */ var _images_products_kidtoy_08_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../images/products/kidtoy_08.jpg */ "./resources/images/products/kidtoy_08.jpg");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _templateObject;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
 
 
 
+function Footer(_ref) {
+  var copyright = _ref.copyright,
+      subTitle = _ref.subTitle,
+      linksFooter = _ref.linksFooter;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(ContinerFooter, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "continer",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "continer2",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "continerTitles",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+            className: "copyright",
+            children: copyright
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+            className: "subtitle",
+            children: subTitle
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "continerLinksFooter",
+          children: linksFooter.map(function (link, index) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+              className: "link",
+              href: link.href,
+              children: link.title.split(" ").map(function (item, index) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  children: item
+                }, index);
+              })
+            }, index);
+          })
+        })]
+      })
+    })
+  });
+}
 
-
-var sliders = [{
-  image: _images_products_tools_equipment_7_jpg__WEBPACK_IMPORTED_MODULE_0__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$250.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_tools_equipment_3_jpg__WEBPACK_IMPORTED_MODULE_1__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$450.00",
-  textPriceReductionProduct: "$550.00",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_tools_equipment_5_jpg__WEBPACK_IMPORTED_MODULE_2__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$150.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_digital_01_jpg__WEBPACK_IMPORTED_MODULE_3__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$1250.00",
-  textPriceReductionProduct: "$1650.00",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_digital_05_jpg__WEBPACK_IMPORTED_MODULE_4__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$550.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_fashion_06_jpg__WEBPACK_IMPORTED_MODULE_5__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$250.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_digital_05_jpg__WEBPACK_IMPORTED_MODULE_4__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$250.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_kidtoy_08_jpg__WEBPACK_IMPORTED_MODULE_6__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$250.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}];
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sliders);
-
-/***/ }),
-
-/***/ "./resources/js/constant/LIST_CATEGORIES_STATE.js":
-/*!********************************************************!*\
-  !*** ./resources/js/constant/LIST_CATEGORIES_STATE.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-var listStateCategories = {
-  smartphone: true,
-  watch: false,
-  laptop: false,
-  tablet: false
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (listStateCategories);
-
-/***/ }),
-
-/***/ "./resources/js/constant/dataSliders_2.js":
-/*!************************************************!*\
-  !*** ./resources/js/constant/dataSliders_2.js ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _images_products_fashion_01_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../images/products/fashion_01.jpg */ "./resources/images/products/fashion_01.jpg");
-/* harmony import */ var _images_products_fashion_02_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../images/products/fashion_02.jpg */ "./resources/images/products/fashion_02.jpg");
-/* harmony import */ var _images_products_fashion_03_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../images/products/fashion_03.jpg */ "./resources/images/products/fashion_03.jpg");
-/* harmony import */ var _images_products_fashion_04_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../images/products/fashion_04.jpg */ "./resources/images/products/fashion_04.jpg");
-/* harmony import */ var _images_products_fashion_05_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../images/products/fashion_05.jpg */ "./resources/images/products/fashion_05.jpg");
-/* harmony import */ var _images_products_fashion_06_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../images/products/fashion_06.jpg */ "./resources/images/products/fashion_06.jpg");
-/* harmony import */ var _images_products_fashion_07_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../images/products/fashion_07.jpg */ "./resources/images/products/fashion_07.jpg");
-/* harmony import */ var _images_products_fashion_08_jpg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../images/products/fashion_08.jpg */ "./resources/images/products/fashion_08.jpg");
-
-
-
-
-
-
-
-
-var sliders_2 = [{
-  image: _images_products_fashion_01_jpg__WEBPACK_IMPORTED_MODULE_0__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$250.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_fashion_02_jpg__WEBPACK_IMPORTED_MODULE_1__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$450.00",
-  textPriceReductionProduct: "$550.00",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_fashion_03_jpg__WEBPACK_IMPORTED_MODULE_2__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$150.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_fashion_04_jpg__WEBPACK_IMPORTED_MODULE_3__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$1250.00",
-  textPriceReductionProduct: "$1650.00",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_fashion_05_jpg__WEBPACK_IMPORTED_MODULE_4__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$550.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_fashion_06_jpg__WEBPACK_IMPORTED_MODULE_5__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$250.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_fashion_07_jpg__WEBPACK_IMPORTED_MODULE_6__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$250.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_fashion_08_jpg__WEBPACK_IMPORTED_MODULE_7__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$250.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}];
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sliders_2);
-
-/***/ }),
-
-/***/ "./resources/js/constant/dataSliders_3.js":
-/*!************************************************!*\
-  !*** ./resources/js/constant/dataSliders_3.js ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _images_products_furniture_01_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../images/products/furniture_01.jpg */ "./resources/images/products/furniture_01.jpg");
-/* harmony import */ var _images_products_furniture_02_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../images/products/furniture_02.jpg */ "./resources/images/products/furniture_02.jpg");
-/* harmony import */ var _images_products_furniture_03_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../images/products/furniture_03.jpg */ "./resources/images/products/furniture_03.jpg");
-/* harmony import */ var _images_products_furniture_04_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../images/products/furniture_04.jpg */ "./resources/images/products/furniture_04.jpg");
-/* harmony import */ var _images_products_furniture_05_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../images/products/furniture_05.jpg */ "./resources/images/products/furniture_05.jpg");
-/* harmony import */ var _images_products_furniture_06_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../images/products/furniture_06.jpg */ "./resources/images/products/furniture_06.jpg");
-/* harmony import */ var _images_products_furniture_07_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../images/products/furniture_07.jpg */ "./resources/images/products/furniture_07.jpg");
-/* harmony import */ var _images_products_furniture_08_jpg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../images/products/furniture_08.jpg */ "./resources/images/products/furniture_08.jpg");
-
-
-
-
-
-
-
-
-var sliders_3 = [{
-  image: _images_products_furniture_01_jpg__WEBPACK_IMPORTED_MODULE_0__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$250.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_furniture_02_jpg__WEBPACK_IMPORTED_MODULE_1__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$450.00",
-  textPriceReductionProduct: "$550.00",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_furniture_03_jpg__WEBPACK_IMPORTED_MODULE_2__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$150.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_furniture_04_jpg__WEBPACK_IMPORTED_MODULE_3__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$1250.00",
-  textPriceReductionProduct: "$1650.00",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_furniture_05_jpg__WEBPACK_IMPORTED_MODULE_4__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$550.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_furniture_06_jpg__WEBPACK_IMPORTED_MODULE_5__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$250.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_furniture_07_jpg__WEBPACK_IMPORTED_MODULE_6__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$250.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}, {
-  image: _images_products_furniture_08_jpg__WEBPACK_IMPORTED_MODULE_7__.default,
-  urlSliderOfert: "#",
-  urlNameProduct: "#",
-  textNameProduct: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, enim!",
-  textPriceProduct: "$250.00",
-  textPriceReductionProduct: "",
-  textStriking: "sale",
-  textViewProduct: "quick view",
-  urlViewProduct: "#"
-}];
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sliders_3);
+var ContinerFooter = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    height: auto;\n    position: relative;\n    background-color: #222;\n    & > .continer {\n        width: 100%;\n        height: auto;\n        position: relative;\n        padding: 16px;\n        & > .continer2 {\n            width: 100%;\n            height: auto;\n            position: relative;\n            display: flex;\n            flex-direction: column;\n            align-items: stretch;\n            justify-content: flex-start;\n            & > .continerTitles {\n                width: 100%;\n                height: auto;\n                position: relative;\n                display: flex;\n                flex-wrap: wrap;\n                justify-content: center;\n                align-items: center;\n                align-content: center;\n                margin-bottom: 16px;\n                .copyright {\n                    font-size: 1.2rem;\n                    color: #ddd;\n                    text-align: center;\n                    margin-right: 8px;\n                }\n                & > .subtitle {\n                    font-size: 1rem;\n                    color: #ddd;\n                    text-align: center;\n                }\n            }\n            .continerLinksFooter {\n                width: 100%;\n                height: auto;\n                position: relative;\n                display: flex;\n                flex-wrap: wrap;\n                justify-content: center;\n                align-items: center;\n                align-content: center;\n                & > .link {\n                    font-size: 1rem;\n                    color: #aaa;\n                    text-decoration: none;\n                    margin-right: 8px;\n                    margin-bottom: 8px;\n                    &:hover {\n                        & > span {\n                            color: #f00;\n                        }\n                    }\n                    & > span {\n                        margin-right: 4px;\n                        &::first-letter {\n                            text-transform: uppercase;\n                        }\n                    }\n                }\n            }\n        }\n    }\n    @media (min-width: 700px) {\n        & > .continer {\n            padding: 64px;\n            & > .continer2 {\n                & > .continerTitles {\n                    .copyright {\n                        font-size: 2rem;\n                    }\n                    & > .subtitle {\n                        font-size: 1.8rem;\n                    }\n                }\n                .continerLinksFooter {\n                    & > .link {\n                        font-size: 1.3rem;\n                    }\n                }\n            }\n        }\n    }\n"])));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Footer);
 
 /***/ }),
 
@@ -9572,10 +8263,10 @@ function useBarMenu() {
 
 /***/ }),
 
-/***/ "./resources/js/hooks/useCategoriesAccordion.js":
-/*!******************************************************!*\
-  !*** ./resources/js/hooks/useCategoriesAccordion.js ***!
-  \******************************************************/
+/***/ "./resources/js/hooks/useFormLogin.js":
+/*!********************************************!*\
+  !*** ./resources/js/hooks/useFormLogin.js ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -9584,7 +8275,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _constant_LIST_CATEGORIES_STATE__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constant/LIST_CATEGORIES_STATE */ "./resources/js/constant/LIST_CATEGORIES_STATE.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -9604,35 +8294,80 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
+var initialForm = {
+  inputUser: {
+    value: "",
+    error: false
+  },
+  inputPassword: {
+    value: "",
+    error: false
+  }
+};
 
-
-function useCategoriesAccordion() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(_constant_LIST_CATEGORIES_STATE__WEBPACK_IMPORTED_MODULE_1__.default),
+function useFormLogin() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(initialForm),
       _useState2 = _slicedToArray(_useState, 2),
-      selectCategori = _useState2[0],
-      setSelectCategori = _useState2[1];
+      stateForm = _useState2[0],
+      setStateForm = _useState2[1];
 
-  function handleCategory(e) {
-    var category = e.target.dataset.category;
-    var newList = _constant_LIST_CATEGORIES_STATE__WEBPACK_IMPORTED_MODULE_1__.default;
-    var keys = Object.keys(_constant_LIST_CATEGORIES_STATE__WEBPACK_IMPORTED_MODULE_1__.default);
-    keys.map(function (key) {
-      if (key === category) {
-        newList[key] = true;
-      } else {
-        newList[key] = false;
-      }
-    });
-    setSelectCategori(_objectSpread({}, newList));
+  var inputUser = stateForm.inputUser,
+      inputPassword = stateForm.inputPassword;
+
+  function submitForm(e) {
+    e.preventDefault();
+
+    if (!(inputUser.error && inputPassword.error) && inputUser.value !== "" && inputPassword.value !== "") {
+      // console.log()
+      location.assign("/");
+    }
+  }
+
+  function handleInputUser(e) {
+    if (e.target.value.match(/^[\w()<>\-,;:"[\]ç%&ñ]+@[a-z]+\.com\.?((net|[a-z])|com|gob)?\.?(com|net)?$/) && e.target.value.trim() !== "") {
+      setStateForm(_objectSpread(_objectSpread({}, stateForm), {}, {
+        inputUser: _objectSpread(_objectSpread({}, stateForm.inputUser), {}, {
+          value: e.target.value,
+          error: false
+        })
+      }));
+    } else {
+      setStateForm(_objectSpread(_objectSpread({}, stateForm), {}, {
+        inputUser: _objectSpread(_objectSpread({}, stateForm.inputUser), {}, {
+          value: e.target.value,
+          error: true
+        })
+      }));
+    }
+  }
+
+  function handleInputPassword(e) {
+    if (e.target.value.match(/^[a-zA-ZñáéíóúÁÉÍÓÚ/*-_$%&|!¡?¿+]+$/gi) && e.target.value.trim() !== "" && e.target.value.length >= 4) {
+      setStateForm(_objectSpread(_objectSpread({}, stateForm), {}, {
+        inputPassword: _objectSpread(_objectSpread({}, stateForm.inputPassword), {}, {
+          value: e.target.value,
+          error: false
+        })
+      }));
+    } else {
+      setStateForm(_objectSpread(_objectSpread({}, stateForm), {}, {
+        inputPassword: _objectSpread(_objectSpread({}, stateForm.inputPassword), {}, {
+          value: e.target.value,
+          error: true
+        })
+      }));
+    }
   }
 
   return {
-    selectCategori: selectCategori,
-    handleCategory: handleCategory
+    stateForm: stateForm,
+    submitForm: submitForm,
+    handleInputUser: handleInputUser,
+    handleInputPassword: handleInputPassword
   };
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useCategoriesAccordion);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useFormLogin);
 
 /***/ }),
 
@@ -9697,40 +8432,34 @@ function useSearchHome() {
 
 /***/ }),
 
-/***/ "./resources/js/pages/Home/App.jsx":
-/*!*****************************************!*\
-  !*** ./resources/js/pages/Home/App.jsx ***!
-  \*****************************************/
+/***/ "./resources/js/pages/Login/App.jsx":
+/*!******************************************!*\
+  !*** ./resources/js/pages/Login/App.jsx ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ App)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_HeaderHome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/HeaderHome */ "./resources/js/components/HeaderHome.jsx");
-/* harmony import */ var _css_layoutPage_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../css/layoutPage.scss */ "./resources/css/layoutPage.scss");
-/* harmony import */ var _hooks_useApp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../hooks/useApp */ "./resources/js/hooks/useApp.js");
+/* harmony import */ var _css_layoutPage_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../css/layoutPage.scss */ "./resources/css/layoutPage.scss");
+/* harmony import */ var _hooks_useApp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../hooks/useApp */ "./resources/js/hooks/useApp.js");
+/* harmony import */ var _components_HeaderHome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/HeaderHome */ "./resources/js/components/HeaderHome.jsx");
 /* harmony import */ var _components_SearchHome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/SearchHome */ "./resources/js/components/SearchHome.jsx");
-/* harmony import */ var _components_Publicity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Publicity */ "./resources/js/components/Publicity.jsx");
-/* harmony import */ var _components_Oferts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/Oferts */ "./resources/js/components/Oferts.jsx");
-/* harmony import */ var _components_ProductCategories__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/ProductCategories */ "./resources/js/components/ProductCategories.jsx");
-/* harmony import */ var _images_fashion_accesories_banner_jpg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../images/fashion-accesories-banner.jpg */ "./resources/images/fashion-accesories-banner.jpg");
-/* harmony import */ var _components_ServicesExtra__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/ServicesExtra */ "./resources/js/components/ServicesExtra.jsx");
-/* harmony import */ var _material_ui_icons_LocalShipping__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/icons/LocalShipping */ "./node_modules/@material-ui/icons/LocalShipping.js");
-/* harmony import */ var _material_ui_icons_SupervisedUserCircle__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @material-ui/icons/SupervisedUserCircle */ "./node_modules/@material-ui/icons/SupervisedUserCircle.js");
-/* harmony import */ var _material_ui_icons_Payment__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @material-ui/icons/Payment */ "./node_modules/@material-ui/icons/Payment.js");
-/* harmony import */ var _material_ui_icons_Loop__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @material-ui/icons/Loop */ "./node_modules/@material-ui/icons/Loop.js");
-/* harmony import */ var _components_ContactSection__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../components/ContactSection */ "./resources/js/components/ContactSection.jsx");
-/* harmony import */ var _components_QuickLinks__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../components/QuickLinks */ "./resources/js/components/QuickLinks.jsx");
-/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../components/Footer */ "./resources/js/components/Footer.jsx");
-/* harmony import */ var _components_BarMenu__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../components/BarMenu */ "./resources/js/components/BarMenu.jsx");
-/* harmony import */ var _components_BarMenuDesktop__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../components/BarMenuDesktop */ "./resources/js/components/BarMenuDesktop.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
+/* harmony import */ var _components_BarMenu__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/BarMenu */ "./resources/js/components/BarMenu.jsx");
+/* harmony import */ var _components_BarMenuDesktop__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/BarMenuDesktop */ "./resources/js/components/BarMenuDesktop.jsx");
+/* harmony import */ var _components_ServicesExtra__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/ServicesExtra */ "./resources/js/components/ServicesExtra.jsx");
+/* harmony import */ var _components_ContactSection__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/ContactSection */ "./resources/js/components/ContactSection.jsx");
+/* harmony import */ var _components_QuickLinks__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/QuickLinks */ "./resources/js/components/QuickLinks.jsx");
+/* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../components/footer */ "./resources/js/components/footer.jsx");
+/* harmony import */ var _material_ui_icons_LocalShipping__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/icons/LocalShipping */ "./node_modules/@material-ui/icons/LocalShipping.js");
+/* harmony import */ var _material_ui_icons_SupervisedUserCircle__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/icons/SupervisedUserCircle */ "./node_modules/@material-ui/icons/SupervisedUserCircle.js");
+/* harmony import */ var _material_ui_icons_Payment__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @material-ui/icons/Payment */ "./node_modules/@material-ui/icons/Payment.js");
+/* harmony import */ var _material_ui_icons_Loop__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/icons/Loop */ "./node_modules/@material-ui/icons/Loop.js");
+/* harmony import */ var _components_FormLogin__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../components/FormLogin */ "./resources/js/components/FormLogin.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -9750,30 +8479,31 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var listServices = [{
-  icon: _material_ui_icons_LocalShipping__WEBPACK_IMPORTED_MODULE_16__.default,
+  icon: _material_ui_icons_LocalShipping__WEBPACK_IMPORTED_MODULE_13__.default,
   title: "free shipping",
   description: "free on order over $99"
 }, {
-  icon: _material_ui_icons_SupervisedUserCircle__WEBPACK_IMPORTED_MODULE_17__.default,
+  icon: _material_ui_icons_SupervisedUserCircle__WEBPACK_IMPORTED_MODULE_14__.default,
   title: "online suport",
   description: "we have support 24/7"
 }, {
-  icon: _material_ui_icons_Payment__WEBPACK_IMPORTED_MODULE_18__.default,
+  icon: _material_ui_icons_Payment__WEBPACK_IMPORTED_MODULE_15__.default,
   title: "safe payment",
   description: "safe your online payment"
 }, {
-  icon: _material_ui_icons_Loop__WEBPACK_IMPORTED_MODULE_19__.default,
+  icon: _material_ui_icons_Loop__WEBPACK_IMPORTED_MODULE_16__.default,
   title: "guarantee",
   description: "30 days money back"
 }];
+
 function App() {
-  var _useApp = (0,_hooks_useApp__WEBPACK_IMPORTED_MODULE_3__.default)(),
+  var _useApp = (0,_hooks_useApp__WEBPACK_IMPORTED_MODULE_2__.default)(),
       isMovile = _useApp.isMovile,
       isDesktop = _useApp.isDesktop;
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
     className: "layoutPage",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_HeaderHome__WEBPACK_IMPORTED_MODULE_1__.default, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_HeaderHome__WEBPACK_IMPORTED_MODULE_3__.default, {
       textContact: "Contacto: (+146)4044502",
       linkContact: "#",
       linkLogin: "/login",
@@ -9782,7 +8512,7 @@ function App() {
       textRegister: "Registrarse",
       linksLanguage: ["#", "#", "#", "#", "#", "#"],
       linksCoins: ["#", "#", "#"]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_SearchHome__WEBPACK_IMPORTED_MODULE_4__.default, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_SearchHome__WEBPACK_IMPORTED_MODULE_4__.default, {
       isMovile: isMovile,
       isDesktop: isDesktop,
       name_sectionFavorite: "WISHLIST",
@@ -9790,25 +8520,13 @@ function App() {
       itemsFavorite: 0,
       itemsCarList: 4,
       textPlaceholder: "SEARCH"
-    }), isDesktop ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_BarMenu__WEBPACK_IMPORTED_MODULE_13__.default, {
+    }), isDesktop ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_BarMenu__WEBPACK_IMPORTED_MODULE_5__.default, {
       isMovile: isMovile
-    }), isDesktop ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_BarMenuDesktop__WEBPACK_IMPORTED_MODULE_14__.default, {}) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_Publicity__WEBPACK_IMPORTED_MODULE_5__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_Oferts__WEBPACK_IMPORTED_MODULE_6__.default, {
-      titleOnsale: "on sale",
-      titleLatestProduct: "latest product",
-      textDays: "Days",
-      textHors: "Hors",
-      textMin: "Min",
-      textSec: "Sec",
-      urlLatesProduct: "#"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_ProductCategories__WEBPACK_IMPORTED_MODULE_7__.default, {
-      image: _images_fashion_accesories_banner_jpg__WEBPACK_IMPORTED_MODULE_8__.default,
-      title: "product categories",
-      urlProductCategories: "#"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_ServicesExtra__WEBPACK_IMPORTED_MODULE_9__.default, {
+    }), isDesktop ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_BarMenuDesktop__WEBPACK_IMPORTED_MODULE_6__.default, {}) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_FormLogin__WEBPACK_IMPORTED_MODULE_11__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_ServicesExtra__WEBPACK_IMPORTED_MODULE_7__.default, {
       listServices: listServices
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_ContactSection__WEBPACK_IMPORTED_MODULE_10__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_QuickLinks__WEBPACK_IMPORTED_MODULE_11__.default, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_ContactSection__WEBPACK_IMPORTED_MODULE_8__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_QuickLinks__WEBPACK_IMPORTED_MODULE_9__.default, {
       title: "quick links"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_Footer__WEBPACK_IMPORTED_MODULE_12__.default, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_footer__WEBPACK_IMPORTED_MODULE_10__.default, {
       copyright: "Copyright © 2021 Grials",
       subTitle: "Media. All rights reserved.",
       linksFooter: [{
@@ -9827,6 +8545,8 @@ function App() {
     })]
   });
 }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
 /***/ }),
 
@@ -10752,66 +9472,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/images/digital-electronic-banner.jpg":
-/*!********************************************************!*\
-  !*** ./resources/images/digital-electronic-banner.jpg ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/digital-electronic-banner.jpg?306c63c9df309069f86762fdbe59604a");
-
-/***/ }),
-
-/***/ "./resources/images/fashion-accesories-banner.jpg":
-/*!********************************************************!*\
-  !*** ./resources/images/fashion-accesories-banner.jpg ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/fashion-accesories-banner.jpg?6a74382672812a21a48a16c8c8d07707");
-
-/***/ }),
-
-/***/ "./resources/images/home-1-banner-1.jpg":
-/*!**********************************************!*\
-  !*** ./resources/images/home-1-banner-1.jpg ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/home-1-banner-1.jpg?5d4fab8efcaa3723c1aefb33e3099bed");
-
-/***/ }),
-
-/***/ "./resources/images/home-1-banner-2.jpg":
-/*!**********************************************!*\
-  !*** ./resources/images/home-1-banner-2.jpg ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/home-1-banner-2.jpg?a96c4b53b8fcba3624868ec3eff9863b");
-
-/***/ }),
-
 /***/ "./resources/images/lang-can.png":
 /*!***************************************!*\
   !*** ./resources/images/lang-can.png ***!
@@ -10917,51 +9577,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/images/main-slider-1-1.jpg":
-/*!**********************************************!*\
-  !*** ./resources/images/main-slider-1-1.jpg ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/main-slider-1-1.jpg?430c96c4c1101dce568b264860fc5fd1");
-
-/***/ }),
-
-/***/ "./resources/images/main-slider-1-2.jpg":
-/*!**********************************************!*\
-  !*** ./resources/images/main-slider-1-2.jpg ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/main-slider-1-2.jpg?687ca93494134bf91592b73a15477c21");
-
-/***/ }),
-
-/***/ "./resources/images/main-slider-1-3.jpg":
-/*!**********************************************!*\
-  !*** ./resources/images/main-slider-1-3.jpg ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/main-slider-1-3.jpg?c1e27e713996cf35ec5dec23ccb0e21c");
-
-/***/ }),
-
 /***/ "./resources/images/payment.png":
 /*!**************************************!*\
   !*** ./resources/images/payment.png ***!
@@ -10974,426 +9589,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/payment.png?60a2358d8edb9a3c6e2a52ebc631392c");
-
-/***/ }),
-
-/***/ "./resources/images/products/digital_01.jpg":
-/*!**************************************************!*\
-  !*** ./resources/images/products/digital_01.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/digital_01.jpg?0a24c6323dd384b8c5e147bfe972e5e9");
-
-/***/ }),
-
-/***/ "./resources/images/products/digital_02.jpg":
-/*!**************************************************!*\
-  !*** ./resources/images/products/digital_02.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/digital_02.jpg?90739807ee17a6ebb5098f8477f739cb");
-
-/***/ }),
-
-/***/ "./resources/images/products/digital_03.jpg":
-/*!**************************************************!*\
-  !*** ./resources/images/products/digital_03.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/digital_03.jpg?2687765299d128eb8b3e27481ff87b94");
-
-/***/ }),
-
-/***/ "./resources/images/products/digital_04.jpg":
-/*!**************************************************!*\
-  !*** ./resources/images/products/digital_04.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/digital_04.jpg?53f4af6533e0c6e0c73aa716284b1cb6");
-
-/***/ }),
-
-/***/ "./resources/images/products/digital_05.jpg":
-/*!**************************************************!*\
-  !*** ./resources/images/products/digital_05.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/digital_05.jpg?249a581778148c802acc9aff6a9e753e");
-
-/***/ }),
-
-/***/ "./resources/images/products/digital_06.jpg":
-/*!**************************************************!*\
-  !*** ./resources/images/products/digital_06.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/digital_06.jpg?95e498c60c1eb2d898a8f4fc17396357");
-
-/***/ }),
-
-/***/ "./resources/images/products/digital_07.jpg":
-/*!**************************************************!*\
-  !*** ./resources/images/products/digital_07.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/digital_07.jpg?4251e8836c5bb630fe52072ceedc7b2d");
-
-/***/ }),
-
-/***/ "./resources/images/products/digital_08.jpg":
-/*!**************************************************!*\
-  !*** ./resources/images/products/digital_08.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/digital_08.jpg?f0b9dad98c5a26a005afc417acf57f32");
-
-/***/ }),
-
-/***/ "./resources/images/products/fashion_01.jpg":
-/*!**************************************************!*\
-  !*** ./resources/images/products/fashion_01.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/fashion_01.jpg?0fa9a14ae77630bba64b00948b32457e");
-
-/***/ }),
-
-/***/ "./resources/images/products/fashion_02.jpg":
-/*!**************************************************!*\
-  !*** ./resources/images/products/fashion_02.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/fashion_02.jpg?19fc07777efdd054987948794b0cde5a");
-
-/***/ }),
-
-/***/ "./resources/images/products/fashion_03.jpg":
-/*!**************************************************!*\
-  !*** ./resources/images/products/fashion_03.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/fashion_03.jpg?40b7bec8eafcde652c257c0ad1dab36d");
-
-/***/ }),
-
-/***/ "./resources/images/products/fashion_04.jpg":
-/*!**************************************************!*\
-  !*** ./resources/images/products/fashion_04.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/fashion_04.jpg?5346208cd27c986fbb98ad561eae3ec4");
-
-/***/ }),
-
-/***/ "./resources/images/products/fashion_05.jpg":
-/*!**************************************************!*\
-  !*** ./resources/images/products/fashion_05.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/fashion_05.jpg?62fa3659fb7dfe3be9dcbc17db089cda");
-
-/***/ }),
-
-/***/ "./resources/images/products/fashion_06.jpg":
-/*!**************************************************!*\
-  !*** ./resources/images/products/fashion_06.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/fashion_06.jpg?fe6ee5c4bf980dcd8e14295c39c4a2ae");
-
-/***/ }),
-
-/***/ "./resources/images/products/fashion_07.jpg":
-/*!**************************************************!*\
-  !*** ./resources/images/products/fashion_07.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/fashion_07.jpg?204eabe4b534e60e79e205e3ecb0d367");
-
-/***/ }),
-
-/***/ "./resources/images/products/fashion_08.jpg":
-/*!**************************************************!*\
-  !*** ./resources/images/products/fashion_08.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/fashion_08.jpg?c2a7cbb34ef983fd3ee5ecb79d4b0c88");
-
-/***/ }),
-
-/***/ "./resources/images/products/furniture_01.jpg":
-/*!****************************************************!*\
-  !*** ./resources/images/products/furniture_01.jpg ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/furniture_01.jpg?de82bf120336417f729890dc5775f80c");
-
-/***/ }),
-
-/***/ "./resources/images/products/furniture_02.jpg":
-/*!****************************************************!*\
-  !*** ./resources/images/products/furniture_02.jpg ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/furniture_02.jpg?c55703a2018c01b32e2ac4f12b1e362e");
-
-/***/ }),
-
-/***/ "./resources/images/products/furniture_03.jpg":
-/*!****************************************************!*\
-  !*** ./resources/images/products/furniture_03.jpg ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/furniture_03.jpg?f0f01b212d2522fe330d569257684d7c");
-
-/***/ }),
-
-/***/ "./resources/images/products/furniture_04.jpg":
-/*!****************************************************!*\
-  !*** ./resources/images/products/furniture_04.jpg ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/furniture_04.jpg?f6549e6620976dd4b1223f13531d640b");
-
-/***/ }),
-
-/***/ "./resources/images/products/furniture_05.jpg":
-/*!****************************************************!*\
-  !*** ./resources/images/products/furniture_05.jpg ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/furniture_05.jpg?42875ab358715b5d831399f7c4320257");
-
-/***/ }),
-
-/***/ "./resources/images/products/furniture_06.jpg":
-/*!****************************************************!*\
-  !*** ./resources/images/products/furniture_06.jpg ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/furniture_06.jpg?0dfd44ffefd4391c92b8897461adbc59");
-
-/***/ }),
-
-/***/ "./resources/images/products/furniture_07.jpg":
-/*!****************************************************!*\
-  !*** ./resources/images/products/furniture_07.jpg ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/furniture_07.jpg?a31a15aa0111ee9e898c1e87d487f5ce");
-
-/***/ }),
-
-/***/ "./resources/images/products/furniture_08.jpg":
-/*!****************************************************!*\
-  !*** ./resources/images/products/furniture_08.jpg ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/furniture_08.jpg?98cae3459b9d872cef22b3606518de0d");
-
-/***/ }),
-
-/***/ "./resources/images/products/kidtoy_08.jpg":
-/*!*************************************************!*\
-  !*** ./resources/images/products/kidtoy_08.jpg ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/kidtoy_08.jpg?ab532e9abf96c15f5a862684db700acf");
-
-/***/ }),
-
-/***/ "./resources/images/products/tools_equipment_3.jpg":
-/*!*********************************************************!*\
-  !*** ./resources/images/products/tools_equipment_3.jpg ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/tools_equipment_3.jpg?0d204c95e4b9bae08778f5d7efa9d737");
-
-/***/ }),
-
-/***/ "./resources/images/products/tools_equipment_5.jpg":
-/*!*********************************************************!*\
-  !*** ./resources/images/products/tools_equipment_5.jpg ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/tools_equipment_5.jpg?97278f9b9d4b1c4a1cfd4fd6d2c207f1");
-
-/***/ }),
-
-/***/ "./resources/images/products/tools_equipment_7.jpg":
-/*!*********************************************************!*\
-  !*** ./resources/images/products/tools_equipment_7.jpg ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/tools_equipment_7.jpg?c223d3d28665af0dfd4bd31c5220bdf3");
 
 /***/ }),
 
@@ -50224,15 +48419,15 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/*!*******************************************!*\
-  !*** ./resources/js/pages/Home/index.jsx ***!
-  \*******************************************/
+/*!********************************************!*\
+  !*** ./resources/js/pages/Login/index.jsx ***!
+  \********************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./resources/js/pages/Home/App.jsx");
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./resources/js/pages/Login/App.jsx");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _context_store_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../context/store.js */ "./resources/js/context/store.js");
+/* harmony import */ var _context_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../context/store */ "./resources/js/context/store.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -50240,12 +48435,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, {
-  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_3__.Provider, {
-    store: _context_store_js__WEBPACK_IMPORTED_MODULE_4__.default,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_App__WEBPACK_IMPORTED_MODULE_2__.default, {})
-  })
-}), document.getElementById("app"));
+react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_3__.Provider, {
+  store: _context_store__WEBPACK_IMPORTED_MODULE_4__.default,
+  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_App__WEBPACK_IMPORTED_MODULE_2__.default, {})
+}), document.getElementById("app_login"));
 })();
 
 /******/ })()

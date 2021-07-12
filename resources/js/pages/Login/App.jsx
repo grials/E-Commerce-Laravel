@@ -1,22 +1,19 @@
 import React from "react";
-import HeaderHome from "../../components/HeaderHome";
 import "../../../css/layoutPage.scss";
 import useApp from "../../hooks/useApp";
+import HeaderHome from "../../components/HeaderHome";
 import SearchHome from "../../components/SearchHome";
-import Publicity from "../../components/Publicity";
-import Oferts from "../../components/Oferts";
-import ProductCategories from "../../components/ProductCategories";
-import imageProductCategories from "../../../images/fashion-accesories-banner.jpg";
+import BarMenu from "../../components/BarMenu";
+import BarMenuDesktop from "../../components/BarMenuDesktop";
 import ServicesExtra from "../../components/ServicesExtra";
+import ContactSection from "../../components/ContactSection";
+import QuickLinks from "../../components/QuickLinks";
+import Footer from "../../components/footer";
 import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import PaymentIcon from "@material-ui/icons/Payment";
 import LoopIcon from "@material-ui/icons/Loop";
-import ContactSection from "../../components/ContactSection";
-import QuickLinks from "../../components/QuickLinks";
-import Footer from "../../components/Footer";
-import BarMenu from "../../components/BarMenu";
-import BarMenuDesktop from "../../components/BarMenuDesktop";
+import FormLogin from "../../components/FormLogin";
 
 const listServices = [
     {
@@ -41,11 +38,10 @@ const listServices = [
     },
 ];
 
-export default function App() {
+function App() {
     const { isMovile, isDesktop } = useApp();
-
     return (
-        <div className={"layoutPage"}>
+        <div className="layoutPage">
             <HeaderHome
                 textContact={"Contacto: (+146)4044502"}
                 linkContact={"#"}
@@ -68,23 +64,9 @@ export default function App() {
             {isDesktop ? null : <BarMenu isMovile={isMovile} />}
 
             {isDesktop ? <BarMenuDesktop /> : null}
-
-            <Publicity />
-
-            <Oferts
-                titleOnsale={"on sale"}
-                titleLatestProduct={"latest product"}
-                textDays={"Days"}
-                textHors={"Hors"}
-                textMin={"Min"}
-                textSec={"Sec"}
-                urlLatesProduct={"#"}
-            />
-            <ProductCategories
-                image={imageProductCategories}
-                title={"product categories"}
-                urlProductCategories={"#"}
-            />
+            {/* Code extra */}
+            <FormLogin />
+            {/* Code extra */}
             <ServicesExtra listServices={listServices} />
             <ContactSection />
             <QuickLinks title={"quick links"} />
@@ -101,3 +83,5 @@ export default function App() {
         </div>
     );
 }
+
+export default App;

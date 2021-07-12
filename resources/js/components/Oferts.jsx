@@ -45,7 +45,11 @@ const ContinerOferts = styled.div`
         height: auto;
         position: relative;
         padding: 0 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         & > .continer2 {
+            max-width: 1100px;
             width: 100%;
             height: auto;
             position: relative;

@@ -93,37 +93,69 @@ function Carrusel({ children }) {
 const ContinerCarrusel = styled.div`
     position: relative;
     width: 100%;
-    height: 100%;
+    height: auto;
     overflow: hidden;
 `;
 
 const ShowSlider = styled.div`
     position: relative;
-    height: 100%;
+    height: auto;
     width: ${(props) => `${props.index * 100}%`};
     display: flex;
     flex-wrap: nowrap;
 `;
 const ContinerButtons = styled.div`
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: 100%;
+    height: 40px;
+    padding-top: 4px;
     pointer-events: none;
     top: 0;
     left: 0;
+    @media (min-width: 550px) {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        top: 0;
+        left: 0;
+    }
 `;
 const Button = styled.button`
-    position: absolute;
-    width: 20%;
+    position: relative;
+    width: 50%;
     height: 100%;
     top: 0;
     right: ${(props) => (props.right ? "0" : "")};
     pointer-events: all;
-    background-color: #0005;
+    background-color: #9995;
     cursor: pointer;
-    border: none;
+    border: 1px solid #999;
     outline: none;
     color: #fff;
+    &:hover {
+        background-color: #999;
+        border-color: #f00;
+    }
+    @media (min-width: 550px) {
+        position: absolute;
+        width: 10%;
+        height: 100%;
+        top: 0;
+        right: ${(props) => (props.right ? "0" : "")};
+        pointer-events: all;
+        background-color: #0001;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        color: #fff;
+        transition: color 0.3s ease-in-out;
+        transition: background 0.3s ease-in-out;
+        &:hover {
+            background-color: #0005;
+            color: #f00;
+        }
+    }
 `;
 
 export default Carrusel;

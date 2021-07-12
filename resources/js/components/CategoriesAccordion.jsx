@@ -154,6 +154,26 @@ const ContinerCategoriesAccordion = styled.div`
             }
         }
     }
+    @media (min-width: 550px) {
+        & > .continer {
+            & > .continer2 {
+                .continerTextsCategories {
+                    border-bottom: 1px solid #aaa;
+                    background-color: #444;
+                    & > .continer {
+                        & > .continer2 {
+                            flex-direction: row;
+                            align-items: center;
+                            .category {
+                                width: auto;
+                                padding: 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 `;
 
 export default CategoriesAccordion;

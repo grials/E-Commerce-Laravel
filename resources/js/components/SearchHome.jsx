@@ -8,6 +8,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import "../../css/SearchHome.scss";
 import "../../css/BarUtilities.scss";
 import "../../css/SectionList.scss";
+import useSearchHome from "../hooks/useSearchHome";
 
 function SearchHome({
     isMovile,
@@ -18,6 +19,7 @@ function SearchHome({
     itemsCarList,
     textPlaceholder,
 }) {
+    const { dispatch, isActiveMenu, handleMenuMovile } = useSearchHome();
     return (
         <div className={`searchHome`}>
             <div className="continer_searchHome">
@@ -34,6 +36,9 @@ function SearchHome({
                         itemsFavorite={itemsFavorite}
                         itemsCarList={itemsCarList}
                         isDesktop={isDesktop}
+                        dispatch={dispatch}
+                        isActiveMenu={isActiveMenu}
+                        handleMenuMovile={handleMenuMovile}
                     />
                     <div className="barSearch">
                         <div className="continer_barSearch">
@@ -63,6 +68,9 @@ function BarUtilities({
     name_sectionCarList,
     itemsFavorite,
     itemsCarList,
+    dispatch,
+    isActiveMenu,
+    handleMenuMovile,
 }) {
     return (
         <div className={`barUtilities`}>
@@ -87,10 +95,19 @@ function BarUtilities({
                             className="continerMenuHamburguer
                         continerMenuHamburguer_menuIcon"
                         >
-                            <MenuIcon />
+                            <MenuIcon onClick={() => handleMenuMovile(true)} />
                         </div>
                     ) : (
-                        <Hamburger className="continerMenuHamburguer" />
+                        <Hamburger
+                            className="continerMenuHamburguer"
+                            onToggle={(toggled) => {
+                                if (toggled) {
+                                    dispatch(isActiveMenu(true));
+                                } else {
+                                    dispatch(isActiveMenu(false));
+                                }
+                            }}
+                        />
                     )}
                 </div>
             </div>

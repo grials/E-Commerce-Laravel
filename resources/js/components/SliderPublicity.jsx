@@ -34,19 +34,26 @@ function SliderPublicity({
 }
 
 const ContinerSlider = styled.div`
+    min-height: 200px;
     position: relative;
     width: 100%;
     height: 100%;
     .continerImage {
+        min-height: 200px;
         width: 100%;
         height: 100%;
         position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         img {
             width: 100%;
             height: 100%;
+            object-fit: contain;
         }
     }
     .card {
+        min-height: 200px;
         position: absolute;
         width: 100%;
         height: 100%;
@@ -57,7 +64,12 @@ const ContinerSlider = styled.div`
             height: 100%;
             position: relative;
             padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             .continerText {
+                max-width: 350px;
+                max-height: 180px;
                 width: 100%;
                 height: 100%;
                 padding: 8px;
@@ -66,7 +78,7 @@ const ContinerSlider = styled.div`
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                justify-content: flex-start;
+                justify-content: space-evenly;
                 transition: all 0.3s ease-in-out;
                 &:hover {
                     z-index: 100;

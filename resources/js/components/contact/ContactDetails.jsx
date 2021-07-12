@@ -44,6 +44,7 @@ function ContactDetails({ title, direction_1, number, email }) {
 
 const ContinerContactDetails = styled.div`
     min-width: 290px;
+    max-width: 500px;
     flex-basis: 33.33%;
     height: auto;
     position: relative;
